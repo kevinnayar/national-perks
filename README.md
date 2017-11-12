@@ -2,38 +2,30 @@
 A detailed collection of all 59 U.S. National Parks
 
 ```
+api/
 components/
   App/
-    index.js
   Header/
+  Loader/
   Navigation/
   Map/
 containers/
-  ParkList/
-  Park/
   Filters/
-  Sorters/
+  Park/
+  ParkList/
   Search/
-store/
-  parks/
-    actions.js
-    reducer.js
-  park/
-  filters/
-  sorters/
-  reducers.js
+  Sorters/
 helpers/
-styles/
-index.js
-
+store/
+  park/
+  parks/
+  sorters/
+  states/
 
 const state = {
-  default: {
-    parks: [],
-    park: {},
-    filters: [],
-    sorters: [],
-  },
+  parks: [],
+  states: [],
+  sorters: [],
   active: {
     parks: [],
     park: {},
