@@ -3,24 +3,21 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { slugify } from '../helpers'
 import { fetchParks } from '../store/parks/actions'
-import { fetchStates } from '../store/states/actions'
 import { fetchSorters } from '../store/sorters/actions'
 import Loader from '../components/Loader'
-
 
 class ParkList extends Component {
   componentDidMount() {
     this.props.fetchParks()
-    this.props.fetchStates()
     this.props.fetchSorters()
   }
 
   renderParks(parks) {
-    return parks.map((park, index) => {
+    return parks.map(park => {
       const parkId = slugify(park.title)
 
       return (
-        <div className="park-list-item" key={park.title}>
+        <div className="park" key={park.title}>
           <Link to={`/park/${parkId}`}>
             <img className="image" src={`/images/thumbnails/${park.image}`} alt={park.title} />
             <h1 className="title">{park.title}</h1>
@@ -41,12 +38,11 @@ class ParkList extends Component {
   }
 
   render() {
-    const isLoading = (!this.props.parks) ? true : false
-    console.log(this.props)
+    const isLoading = (!this.props.activeParks) ? true : false
 
     return (
       <div className="park-list">
-        {isLoading ? <Loader /> :  this.renderParks(this.props.parks)}
+        {isLoading ? <Loader /> : this.renderParks(this.props.activeParks)}
       </div>
     )
   }
@@ -54,10 +50,11 @@ class ParkList extends Component {
 
 function mapStateToProps(state) {
   return {
-    parks: state.parks.data,
-    states: state.states.data,
-    sorters: state.sorters.data,
+    parks: state.parks.defaults,
+    activeParks: state.parks.active,
+    sorters: state.sorters.defaults,
+    activeSorter: state.sorters.active,
   }
 }
 
-export default connect(mapStateToProps, { fetchParks, fetchStates, fetchSorters })(ParkList)
+export default connect(mapStateToProps, { fetchParks, fetchSorters })(ParkList)

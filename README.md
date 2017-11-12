@@ -23,14 +23,9 @@ store/
   states/
 
 const state = {
+  park: {},
   parks: [],
   states: [],
   sorters: [],
-  active: {
-    parks: [],
-    park: {},
-    filters: [],
-    sorter: {},
-  }
 }
 ```

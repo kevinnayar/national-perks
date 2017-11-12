@@ -1,15 +1,24 @@
 import deepFreeze from 'deep-freeze'
-import { FETCH_SORTERS } from './actions'
+import { FETCH_SORTERS, FETCH_ACTIVE_SORTER } from './actions'
 
 export default function(state = [], action) {
   switch (action.type) {
 
     case FETCH_SORTERS: {
-      const data = [...action.payload]
+      const defaults = [...action.payload]
 
       return deepFreeze({
         ...state,
-        data,
+        defaults,
+      })
+    }
+
+    case FETCH_ACTIVE_SORTER: {
+      const active = [...action.payload]
+
+      return deepFreeze({
+        ...state,
+        active,
       })
     }
 

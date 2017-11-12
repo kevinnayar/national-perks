@@ -1,15 +1,33 @@
 import deepFreeze from 'deep-freeze'
-import { FETCH_PARKS } from './actions'
+import { FETCH_PARKS, FETCH_ACTIVE_PARKS, UPDATE_ACTIVE_PARKS } from './actions'
 
-export default function(state = [], action) {
+export default function(state = {}, action) {
   switch (action.type) {
 
     case FETCH_PARKS: {
-      const data = [...action.payload]
+      const defaults = [...action.payload]
 
       return deepFreeze({
         ...state,
-        data,
+        defaults,
+      })
+    }
+
+    case FETCH_ACTIVE_PARKS: {
+      const active = [...action.payload]
+
+      return deepFreeze({
+        ...state,
+        active,
+      })
+    }
+
+    case UPDATE_ACTIVE_PARKS: {
+      const active = [...action.payload]
+
+      return deepFreeze({
+        ...state,
+        active,
       })
     }
 
