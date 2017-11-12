@@ -1,0 +1,48 @@
+@import "./reset.scss";
+@import "./vars.scss";
+
+// body
+body {
+  font-family: $fontBody;
+  background: $colorLight;
+  color: $colorDark;
+  font-size: 62.5%;
+  a {
+    text-decoration: none;
+    color: $colorDark;
+    transition: opacity 0.25s linear;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .loading {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 6px solid darken($colorLight, 75);
+    border-top-color: transparent;
+    text-indent: -999em;
+    position: absolute;
+    left: 50%;
+    top: 400px;
+    margin: -28px 0 0 -28px;
+    animation-name: spinLoader;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    animation-duration: 2s;
+  }
+}
+
+
+// header
+.header {
+
+}
+
+.navigation {
+
+}
+
+.content {
+
+}
