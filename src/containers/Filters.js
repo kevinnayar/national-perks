@@ -15,7 +15,7 @@ class Filters extends Component {
       resolve(this.props.updateActiveStates(state, activeStates))
     })
     .then(newActiveStates => {
-      this.props.updateActiveParks(state, newActiveStates, parks, activeParks)
+      this.props.updateActiveParks(state, newActiveStates.payload, parks, activeParks)
     })
   }
 

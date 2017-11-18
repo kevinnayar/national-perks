@@ -24,15 +24,42 @@ export function fetchParks() {
 
 export function updateActiveParks(newState, activeStates, parks, activeParks) {
   let newActiveParks = [...activeParks]
+  let parksToRemove = []
+  let parksToInclude = []
 
-  newActiveParks = newActiveParks.reduce((previousParks, currentPark) => {
-    if (!currentPark.states.includes(newState)) {
-      return [...previousParks, currentPark]
-    }
-    else {
-      return [...previousParks]
-    }
-  }, [])
+  if (!activeStates.includes(newState)) {
+    parks.forEach(park => {
+      if (park.states.includes(newState)) {
+        console.log('remove', park.title)
+        parksToRemove.push(park)
+      }
+    })
+  }
+  else {
+    parks.forEach(park => {
+      if (park.states.includes(newState)) {
+        console.log('add', park.title)
+        parksToInclude.push(park)
+      }
+    })
+  }
+
+  if (parksToRemove.length > 0) {
+    parksToRemove.forEach(park => {
+      newActiveParks.splice(newActiveParks.indexOf(park), 1)
+    })
+  }
+  else if (parksToInclude.length > 0) {
+    parksToInclude.forEach(park => {
+      newActiveParks.push(park)
+    })
+  }
+
+  newActiveParks = newActiveParks.sort((a, b) => {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) return -1
+    if (a.title.toLowerCase() > b.title.toLowerCase()) return 1
+    return 0
+  })
 
   console.log(newActiveParks)
 

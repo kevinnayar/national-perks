@@ -31,6 +31,9 @@ export function updateActiveStates(newState, activeStates) {
   else {
     newActiveStates.push(newState)
   }
+
+  newActiveStates = newActiveStates.sort()
+  
   return {
     type: UPDATE_ACTIVE_STATES,
     payload: newActiveStates
