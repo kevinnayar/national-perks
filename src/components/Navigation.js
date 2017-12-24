@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { object } from 'prop-types'
+
+import Sorters from '../containers/Sorters'
 import Filters from '../containers/Filters'
 
 class Navigation extends Component {
@@ -29,11 +32,17 @@ class Navigation extends Component {
           <span className="bottom-line"></span>
         </div>
         <div className={`navigation-elements ${activeState}`}>
+          <Sorters sorters={this.props.sorters} />
           <Filters filters={this.props.filters} />
         </div>
       </div>
     )
   }
+}
+
+Navigation.propTypes = {
+  filters: object,
+  sorters: object,
 }
 
 export default Navigation

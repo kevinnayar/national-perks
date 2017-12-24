@@ -4,12 +4,16 @@ import { withRouter } from 'react-router'
 import { object, func } from 'prop-types'
 
 import { fetchData } from '../store/data/actions'
+import { fetchSorters } from '../store/sorters/actions'
+
 import App from '../components/App'
 
 class AppContainer extends Component {
   static propTypes = {
     fetchData: func,
+    fetchSorters: func,
     data: object,
+    sorters: object,
   }
 
   state = {
@@ -17,7 +21,9 @@ class AppContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData().then(() => this.setState({ isLoading: false }))
+    this.props.fetchData()
+      .then(this.props.fetchSorters())
+      .then(() => this.setState({ isLoading: false }))
   }
 
   render() {
@@ -25,6 +31,7 @@ class AppContainer extends Component {
       <App
         isLoading={this.state.isLoading}
         data={this.props.data}
+        sorters={this.props.sorters}
       />
     )
   }
@@ -33,7 +40,11 @@ class AppContainer extends Component {
 function mapStateToProps(state) {
   return {
     data: state.data,
+    sorters: state.sorters,
   }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchData })(AppContainer))
+export default withRouter(connect(mapStateToProps, {
+  fetchData,
+  fetchSorters,
+})(AppContainer))

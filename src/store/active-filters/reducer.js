@@ -1,6 +1,6 @@
 import {
   FETCH_ACTIVE_FILTER_IDS,
-  UPDATE_ACTIVE_FILTER_IDS
+  UPDATE_ACTIVE_FILTER_IDS,
 } from './actions'
 
 export default function(state = [], action) {

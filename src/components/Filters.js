@@ -24,7 +24,7 @@ class Filters extends Component {
   render() {
     return (
       <div className="navigation-element filters-element">
-        <p className="title">Filter by States</p>
+        <p className="title">Filter by states</p>
         <div className="filters">
           {this.renderFilter(this.props.activeFilters, this.props.filters)}
         </div>
@@ -35,7 +35,7 @@ class Filters extends Component {
 
 Filters.propTypes = {
   filters: object,
-  activeFilters: array
+  activeFilters: array,
 }
 
 export default Filters

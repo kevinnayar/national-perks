@@ -36,4 +36,7 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchActiveFilterIds, updateActiveFilterIds })(FiltersContainer)
+export default connect(mapStateToProps, {
+  fetchActiveFilterIds,
+  updateActiveFilterIds,
+})(FiltersContainer)

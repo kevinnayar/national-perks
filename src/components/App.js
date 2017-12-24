@@ -1,20 +1,22 @@
 import React from 'react'
 import { bool, object } from 'prop-types'
 
-//import Loader from './Loader'
+import Loader from './Loader'
 import Header from './Header'
-import Navigation from '../containers/Navigation'
+import Navigation from './Navigation'
 
 function App (props) {
   const {
     isLoading,
     data,
+    sorters,
   } = props
 
   return (
     <div className="app">
       <Header>National Perks</Header>
-      {!isLoading && <Navigation data={data} />}
+      {isLoading && <Loader />}
+      {!isLoading && <Navigation filters={data.states} sorters={sorters} />}
     </div>
   )
 }
@@ -22,17 +24,14 @@ function App (props) {
 App.propTypes = {
   isLoading: bool,
   data: object,
+  sorters: object,
 }
 
 export default App
 
 
 /*
-{!isLoading && <Navigation filters={filters} sorters={sorters} />}
-
-i like these patterns:
-
-{isLoading ? <Loader /> : <Header>National Perks</Header>}
-{!isLoading && <Navigation search={search} />}
-
+Rendering Patterns:
+  {!isLoading && <Navigation filters={filters} sorters={sorters} />}
+  {isLoading ? <Loader /> : <Header>National Perks</Header>}
 */

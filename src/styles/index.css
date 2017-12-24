@@ -162,6 +162,8 @@ body {
         background: #d1d1d1; }
       .navigation .navigation-elements .navigation-element .option:hover {
         opacity: 0.7; }
+  .navigation .navigation-elements .sorters-element {
+    width: 33.33%; }
   .navigation .navigation-elements .filters-element {
     width: 61.67%;
     margin-left: 5%; }
