@@ -1,9 +1,9 @@
-import parks from './parks/reducer'
-import states from './states/reducer'
+import data from './data/reducer'
+import activeFilters from './active-filters/reducer'
 import sorters from './sorters/reducer'
 
 export {
-  parks,
-  states,
+  data,
+  activeFilters,
   sorters,
 }

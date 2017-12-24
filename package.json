@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "deep-freeze": "0.0.1",
+    "normalizr": "^3.2.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

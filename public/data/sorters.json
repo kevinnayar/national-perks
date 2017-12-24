@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Name",
+    "id": "sorter_name"
+  },
+  {
+    "title": "Park Size",
+    "id": "sorter_park-size"
+  },
+  {
+    "title": "Annual Visitors",
+    "id": "sorter_annual-visitors"
+  },
+  {
+    "title": "Date Established",
+    "id": "sorter_date-established"
+  }
+]

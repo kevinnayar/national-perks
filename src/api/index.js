@@ -8,12 +8,16 @@ class Api {
     })
   }
 
-  getParks () {
+  ping () {
+    return 'pong'
+  }
+
+  getData () {
     return this.getRequest('/data/parks.json')
   }
 
-  getStates () {
-    return this.getRequest('/data/states.json')
+  getSorters () {
+    return this.getRequest('/data/sorters.json')
   }
 }
 

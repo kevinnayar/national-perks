@@ -6,30 +6,30 @@ class Navigation extends Component {
     super()
 
     this.state = {
-      navigationActive: false
+      navigationVisible: false
     }
 
-    this.handleNavigationTrigger = this.handleNavigationTrigger.bind(this)
+    this.toggleNavigation = this.toggleNavigation.bind(this)
   }
 
-  handleNavigationTrigger() {
+  toggleNavigation() {
     this.setState(prevState => ({
-      navigationActive: !prevState.navigationActive
+      navigationVisible: !prevState.navigationVisible
     }))
   }
 
   render() {
-    const activeState = (this.state.navigationActive) ? 'active' : 'inactive'
+    const activeState = (this.state.navigationVisible) ? 'active' : 'inactive'
 
     return (
       <div className="navigation">
-        <div className={`navigation-trigger ${activeState}`} onClick={() => this.handleNavigationTrigger()}>
+        <div  className={`navigation-trigger ${activeState}`} onClick={() => this.toggleNavigation()}>
           <span className="top-line"></span>
           <span className="middle-line"></span>
           <span className="bottom-line"></span>
         </div>
         <div className={`navigation-elements ${activeState}`}>
-          <Filters />
+          <Filters filters={this.props.filters} />
         </div>
       </div>
     )

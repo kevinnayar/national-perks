@@ -1,29 +1,38 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Header from './Header'
-import Navigation from './Navigation'
-import ParkList from '../containers/ParkList'
+import React from 'react'
+import { bool, object } from 'prop-types'
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="app">
-          <Header>National Perks</Header>
-          <Navigation />
-          <Route path="/" exact render={() => (
-            <div className="page page-park-list">
-              <ParkList />
-            </div>
-          )}/>
-          <Route path="/park/:parkId" exact render={() => (
-            <div className="page page-park">
-            </div>
-          )}/>
-        </div>
-      </Router>
-    )
-  }
+//import Loader from './Loader'
+import Header from './Header'
+import Navigation from '../containers/Navigation'
+
+function App (props) {
+  const {
+    isLoading,
+    data,
+  } = props
+
+  return (
+    <div className="app">
+      <Header>National Perks</Header>
+      {!isLoading && <Navigation data={data} />}
+    </div>
+  )
+}
+
+App.propTypes = {
+  isLoading: bool,
+  data: object,
 }
 
 export default App
+
+
+/*
+{!isLoading && <Navigation filters={filters} sorters={sorters} />}
+
+i like these patterns:
+
+{isLoading ? <Loader /> : <Header>National Perks</Header>}
+{!isLoading && <Navigation search={search} />}
+
+*/

@@ -58,7 +58,7 @@ body {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    border: 6px solid #3f3f3f;
+    border: 6px solid #bebebe;
     border-top-color: transparent;
     text-indent: -999em;
     position: absolute;
@@ -79,7 +79,7 @@ body {
   line-height: 86px;
   border-top: 4px solid #5fd2c8;
   background: #fefefe;
-  z-index: 1; }
+  z-index: 2; }
   .header > .title {
     position: absolute;
     left: 5%;
@@ -96,10 +96,10 @@ body {
   cursor: pointer;
   position: fixed;
   right: 5%;
-  top: 32px;
+  top: 20px;
   width: 50px;
-  height: 20px;
-  z-index: 1;
+  height: 50px;
+  z-index: 2;
   transition: opacity 0.25s linear; }
   .navigation .navigation-trigger:hover {
     opacity: 0.6; }
@@ -112,11 +112,11 @@ body {
     transform-origin: center center 0;
     transition: all .3s ease-in-out 0.1s; }
     .navigation .navigation-trigger span.top-line {
-      top: 0; }
+      top: 15px; }
     .navigation .navigation-trigger span.middle-line {
-      top: 10px; }
+      top: 25px; }
     .navigation .navigation-trigger span.bottom-line {
-      top: 20px; }
+      top: 35px; }
   .navigation .navigation-trigger.active .top-line {
     top: 50%;
     transform: rotateZ(135deg); }
@@ -132,13 +132,13 @@ body {
   padding: 30px 5%;
   height: 500px;
   box-sizing: border-box;
-  transition: all .15s ease-in-out; }
+  transition: all .15s ease-in-out;
+  position: fixed;
+  z-index: 1; }
   .navigation .navigation-elements.active {
-    margin-top: 90px;
-    margin-bottom: 0; }
+    top: 90px; }
   .navigation .navigation-elements.inactive {
-    margin-top: -500px;
-    margin-bottom: 90px; }
+    top: -500px; }
   .navigation .navigation-elements .navigation-element {
     color: #121212;
     float: left;
@@ -168,76 +168,116 @@ body {
     .navigation .navigation-elements .filters-element .filters {
       column-count: 3; }
 
-.page.page-park-list .park-list {
-  opacity: 0;
-  animation: fadeIn ease-out 1;
-  animation-fill-mode: forwards;
-  animation-duration: .25s;
-  animation-delay: .25s;
-  margin-left: 6px;
-  overflow: hidden; }
-  .page.page-park-list .park-list .park {
-    float: left;
-    width: 50%;
-    padding-right: 6px;
-    margin-bottom: 6px;
-    box-sizing: border-box;
-    position: relative;
+.page {
+  margin-top: 90px; }
+  .page.page-park-list .park-list {
+    opacity: 0;
+    animation: fadeIn ease-out 1;
+    animation-fill-mode: forwards;
+    animation-duration: .25s;
+    animation-delay: .25s;
+    margin-left: 6px;
     overflow: hidden; }
-    .page.page-park-list .park-list .park a {
-      display: block;
-      width: 100%;
-      height: 460px;
-      background: #73d8cf; }
-    .page.page-park-list .park-list .park .image {
-      width: 100%;
-      transition: filter .5s linear; }
-    .page.page-park-list .park-list .park .title {
-      position: absolute;
-      bottom: 0;
-      height: 70px;
-      line-height: 70px;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 3em;
-      left: 30px;
-      text-shadow: 0 0 10px #121212;
-      color: #fefefe; }
-    .page.page-park-list .park-list .park:hover .image {
-      filter: contrast(130%); }
-    .page.page-park-list .park-list .park .world-heritage-site {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      width: 60px;
-      height: 60px; }
-      .page.page-park-list .park-list .park .world-heritage-site .icon {
-        width: 50px;
-        height: 50px;
-        padding: 5px;
-        background: #fefefe;
-        border-radius: 60px; }
-      .page.page-park-list .park-list .park .world-heritage-site .tooltip-arrow {
-        display: none;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 0 30px 15px;
-        border-color: transparent transparent #fefefe transparent;
+    .page.page-park-list .park-list .park {
+      float: left;
+      width: 50%;
+      padding-right: 6px;
+      margin-bottom: 6px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden; }
+      .page.page-park-list .park-list .park a {
+        display: block;
+        width: 100%;
+        background: #73d8cf; }
+      .page.page-park-list .park-list .park .image {
+        width: 100%;
+        transition: filter .5s linear;
+        vertical-align: middle; }
+      .page.page-park-list .park-list .park .title {
         position: absolute;
+        bottom: 0;
+        height: 70px;
+        line-height: 70px;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 3em;
+        left: 30px;
+        text-shadow: 0 0 10px #121212;
+        color: #fefefe; }
+      .page.page-park-list .park-list .park .state-list {
+        position: absolute;
+        bottom: 20px;
         right: 30px;
-        top: 65px; }
-      .page.page-park-list .park-list .park .world-heritage-site .tooltip {
-        display: none;
+        height: 30px; }
+        .page.page-park-list .park-list .park .state-list .state {
+          float: right;
+          line-height: 30px;
+          height: 30px;
+          padding: 0 10px;
+          margin-left: 10px;
+          background: #f1f1f1;
+          color: #121212;
+          font-size: 1.4em; }
+      .page.page-park-list .park-list .park:hover .image {
+        filter: contrast(130%); }
+      .page.page-park-list .park-list .park .world-heritage-site {
         position: absolute;
-        width: 300px;
-        padding: 20px;
-        background: #fefefe;
-        color: #121212;
-        right: 0;
-        top: 95px;
-        font-size: 1.2em;
-        line-height: 1.5; }
-      .page.page-park-list .park-list .park .world-heritage-site:hover .tooltip-arrow,
-      .page.page-park-list .park-list .park .world-heritage-site:hover .tooltip {
-        display: block; }
+        right: 20px;
+        top: 20px;
+        width: 60px;
+        height: 60px; }
+        .page.page-park-list .park-list .park .world-heritage-site .icon {
+          width: 50px;
+          height: 50px;
+          padding: 5px;
+          background: #fefefe;
+          border-radius: 60px; }
+        .page.page-park-list .park-list .park .world-heritage-site .tooltip-arrow {
+          display: none;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 0 30px 15px;
+          border-color: transparent transparent #fefefe transparent;
+          position: absolute;
+          right: 30px;
+          top: 65px; }
+        .page.page-park-list .park-list .park .world-heritage-site .tooltip {
+          display: none;
+          position: absolute;
+          width: 300px;
+          padding: 20px;
+          background: #fefefe;
+          color: #121212;
+          right: 0;
+          top: 95px;
+          font-size: 1.2em;
+          line-height: 1.5; }
+        .page.page-park-list .park-list .park .world-heritage-site:hover .tooltip-arrow,
+        .page.page-park-list .park-list .park .world-heritage-site:hover .tooltip {
+          display: block; }
+
+@media only screen and (max-width: 768px) {
+  .page.page-park-list .park-list .park {
+    width: 100%; }
+    .page.page-park-list .park-list .park a {
+      height: auto; }
+    .page.page-park-list .park-list .park .title {
+      font-size: 1.8em;
+      bottom: 30px; }
+    .page.page-park-list .park-list .park .state-list {
+      left: 20px;
+      right: auto;
+      bottom: 10px; }
+      .page.page-park-list .park-list .park .state-list .state {
+        font-size: 1em;
+        height: 20px;
+        line-height: 20px;
+        float: left; }
+    .page.page-park-list .park-list .park .world-heritage-site {
+      width: 40px;
+      height: 40px; }
+      .page.page-park-list .park-list .park .world-heritage-site .icon {
+        width: 30px;
+        height: 30px; } }
