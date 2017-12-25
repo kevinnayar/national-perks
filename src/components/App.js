@@ -9,22 +9,24 @@ import Items from '../containers/Items'
 function App (props) {
   const {
     isLoading,
-    data,
+    items,
+    filters,
     sorters,
   } = props
 
   return (
     <div className="app">
       <Header>National Perks</Header>
-      {!isLoading && <Navigation filters={data.states} sorters={sorters} />}
-      {isLoading ? <Loader /> : <Items items={data.parks} filters={data.states} />}
+      {!isLoading && <Navigation filters={filters} sorters={sorters} />}
+      {isLoading ? <Loader /> : <Items items={items} filters={filters} />}
     </div>
   )
 }
 
 App.propTypes = {
   isLoading: bool,
-  data: object,
+  items: object,
+  filters: object,
   sorters: object,
 }
 

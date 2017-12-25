@@ -5,7 +5,7 @@ import { object } from 'prop-types'
 //import { updateActiveSorterId } from '../store/active-sorter/actions'
 import Items from '../components/Items'
 
-class SortersContainer extends Component {
+class ItemsContainer extends Component {
   static propTypes = {
     items: object,
     filters: object,
@@ -26,4 +26,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {  })(SortersContainer)
+export default connect(mapStateToProps, {  })(ItemsContainer)

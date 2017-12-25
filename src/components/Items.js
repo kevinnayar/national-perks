@@ -4,9 +4,7 @@ import { object } from 'prop-types'
 
 class Items extends Component {
   renderItem(items, filters) {
-    console.log(filters)
     return Object.keys(items).map(park => {
-      console.log(items[park])
       return (
         <div
           className={`item`}

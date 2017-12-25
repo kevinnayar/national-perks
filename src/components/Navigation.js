@@ -27,9 +27,9 @@ class Navigation extends Component {
     return (
       <section className="navigation">
         <div  className={`navigation-trigger ${activeState}`} onClick={() => this.toggleNavigation()}>
-          <span className="top-line"></span>
-          <span className="middle-line"></span>
-          <span className="bottom-line"></span>
+          <span className="top-line"/>
+          <span className="middle-line"/>
+          <span className="bottom-line"/>
         </div>
         <div className={`navigation-elements ${activeState}`}>
           <Sorters sorters={this.props.sorters} />
