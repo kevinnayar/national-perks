@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { object, array } from 'prop-types'
 
 class Filters extends Component {
-  handleClick(id, ids, insert) {
-    this.props.updateActiveFilterIds(id, ids, insert)
+  handleClick(id, ids) {
+    this.props.updateActiveFilterIds(id, ids)
   }
 
   renderFilter(activeFilters, filters) {
@@ -14,7 +14,7 @@ class Filters extends Component {
         <p
           className={`filter option ${activeState}`}
           key={filters[state].id}
-          onClick={() => this.handleClick(filters[state].id, activeFilters, true)}>
+          onClick={() => this.handleClick(filters[state].id, activeFilters)}>
           {filters[state].title}
         </p>
       )

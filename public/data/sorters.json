@@ -1,18 +1,18 @@
-[
-  {
+{
+  "sorter_name": {
     "title": "Name",
     "id": "sorter_name"
   },
-  {
+  "sorter_park-size": {
     "title": "Park Size",
     "id": "sorter_park-size"
   },
-  {
+  "sorter_annual-visitors": {
     "title": "Annual Visitors",
     "id": "sorter_annual-visitors"
   },
-  {
+  "sorter_date-established": {
     "title": "Date Established",
     "id": "sorter_date-established"
   }
-]
+}

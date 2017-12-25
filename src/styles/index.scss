@@ -37,6 +37,7 @@ body {
   height: 86px;
   line-height: 86px;
   border-top: 4px solid $colorPrimary;
+  border-bottom: 1px solid darken($colorLight, 5);
   background: $colorLight;
   z-index: 2;
   >.title {
@@ -145,12 +146,12 @@ body {
       }
     }
     .sorters-element {
-      width: 33.33%;
+      width: 23.33%;
       .sorters {
       }
     }
     .filters-element {
-      width: 61.67%;
+      width: 71.67%;
       margin-left: 5%;
       .filters {
         column-count: 3;
@@ -162,143 +163,142 @@ body {
 }
 
 
-.page {
+.items {
   margin-top: 90px;
-  &.page-park-list {
-    .park-list {
-      opacity: 0;
-      animation: fadeIn ease-out 1;
-      animation-fill-mode: forwards;
-      animation-duration: .25s;
-      animation-delay: .25s;
-      margin-left: 6px;
-      overflow: hidden;
-      .park {
-        float: left;
-        width: 50%;
-        padding-right: 6px;
-        margin-bottom: 6px;
-        box-sizing: border-box;
-        position: relative;
-        overflow: hidden;
-        a {
+  opacity: 0;
+  animation: fadeIn ease-out 1;
+  animation-fill-mode: forwards;
+  animation-duration: .25s;
+  animation-delay: .25s;
+  margin-left: 6px;
+  overflow: hidden;
+  .item {
+    float: left;
+    width: 50%;
+    padding-right: 6px;
+    margin-bottom: 6px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    a {
+      display: block;
+      width: 100%;
+      background: lighten($colorPrimary, 5);
+    }
+    .image {
+      width: 100%;
+      transition: filter .5s linear;
+      vertical-align: middle;
+    }
+    .title {
+      position: absolute;
+      bottom: 0;
+      height: 70px;
+      line-height: 70px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 3em;
+      left: 30px;
+      text-shadow: 0 0 10px $colorDark;
+      color: $colorLight;
+    }
+    .state-list {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      height: 30px;
+      .state {
+        float: right;
+        line-height: 30px;
+        height: 30px;
+        padding: 0 10px;
+        margin-left: 10px;
+        background: darken($colorLight, 5);
+        color: $colorDark;
+        font-size: 1.4em;
+      }
+    }
+    &:hover {
+      .image {
+        filter: contrast(130%);
+      }
+    }
+    .world-heritage-site {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 60px;
+      height: 60px;
+      .icon {
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        background: $colorLight;
+        border-radius: 60px;
+      }
+      .tooltip-arrow {
+        display: none;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 30px 15px;
+        border-color: transparent transparent $colorLight transparent;
+        position: absolute;
+        right: 30px;
+        top: 65px;
+      }
+      .tooltip {
+        display: none;
+        position: absolute;
+        width: 300px;
+        padding: 20px;
+        background: $colorLight;
+        color: $colorDark;
+        right: 0;
+        top: 95px;
+        font-size: 1.2em;
+        line-height: 1.5;
+      }
+      &:hover {
+        .tooltip-arrow,
+        .tooltip {
           display: block;
-          width: 100%;
-          background: lighten($colorPrimary, 5);
-        }
-        .image {
-          width: 100%;
-          transition: filter .5s linear;
-          vertical-align: middle;
-        }
-        .title {
-          position: absolute;
-          bottom: 0;
-          height: 70px;
-          line-height: 70px;
-          font-weight: 900;
-          text-transform: uppercase;
-          font-size: 3em;
-          left: 30px;
-          text-shadow: 0 0 10px $colorDark;
-          color: $colorLight;
-        }
-        .state-list {
-          position: absolute;
-          bottom: 20px;
-          right: 30px;
-          height: 30px;
-          .state {
-            float: right;
-            line-height: 30px;
-            height: 30px;
-            padding: 0 10px;
-            margin-left: 10px;
-            background: darken($colorLight, 5);
-            color: $colorDark;
-            font-size: 1.4em;
-          }
-        }
-        &:hover {
-          .image {
-            filter: contrast(130%);
-          }
-        }
-        .world-heritage-site {
-          position: absolute;
-          right: 20px;
-          top: 20px;
-          width: 60px;
-          height: 60px;
-          .icon {
-            width: 50px;
-            height: 50px;
-            padding: 5px;
-            background: $colorLight;
-            border-radius: 60px;
-          }
-          .tooltip-arrow {
-            display: none;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 0 30px 15px;
-            border-color: transparent transparent $colorLight transparent;
-            position: absolute;
-            right: 30px;
-            top: 65px;
-          }
-          .tooltip {
-            display: none;
-            position: absolute;
-            width: 300px;
-            padding: 20px;
-            background: $colorLight;
-            color: $colorDark;
-            right: 0;
-            top: 95px;
-            font-size: 1.2em;
-            line-height: 1.5;
-          }
-          &:hover {
-            .tooltip-arrow,
-            .tooltip {
-              display: block;
-            }
-          }
         }
       }
     }
   }
 }
 
+
 @media only screen and (max-width: 768px) {
-  .page.page-park-list .park-list .park {
-    width: 100%;
-    a {
-      height: auto;
-    }
-    .title {
-      font-size: 1.8em;
-      bottom: 30px;
-    }
-    .state-list {
-      left: 20px;
-      right: auto;
-      bottom: 10px;
-      .state {
-        font-size: 1em;
-        height: 20px;
-        line-height: 20px;
-        float: left;
+  .items {
+    .item {
+      width: 100%;
+      a {
+        height: auto;
       }
-    }
-    .world-heritage-site {
-      width: 40px;
-      height: 40px;
-      .icon {
-        width: 30px;
-        height: 30px;
+      .title {
+        font-size: 1.8em;
+        bottom: 30px;
+      }
+      .state-list {
+        left: 20px;
+        right: auto;
+        bottom: 10px;
+        .state {
+          font-size: 1em;
+          height: 20px;
+          line-height: 20px;
+          float: left;
+        }
+      }
+      .world-heritage-site {
+        width: 40px;
+        height: 40px;
+        .icon {
+          width: 30px;
+          height: 30px;
+        }
       }
     }
   }

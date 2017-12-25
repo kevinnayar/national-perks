@@ -25,7 +25,7 @@ class Navigation extends Component {
     const activeState = (this.state.navigationVisible) ? 'active' : 'inactive'
 
     return (
-      <div className="navigation">
+      <section className="navigation">
         <div  className={`navigation-trigger ${activeState}`} onClick={() => this.toggleNavigation()}>
           <span className="top-line"></span>
           <span className="middle-line"></span>
@@ -35,7 +35,7 @@ class Navigation extends Component {
           <Sorters sorters={this.props.sorters} />
           <Filters filters={this.props.filters} />
         </div>
-      </div>
+      </section>
     )
   }
 }

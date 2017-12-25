@@ -4,6 +4,7 @@ import { bool, object } from 'prop-types'
 import Loader from './Loader'
 import Header from './Header'
 import Navigation from './Navigation'
+import Items from '../containers/Items'
 
 function App (props) {
   const {
@@ -15,8 +16,8 @@ function App (props) {
   return (
     <div className="app">
       <Header>National Perks</Header>
-      {isLoading && <Loader />}
       {!isLoading && <Navigation filters={data.states} sorters={sorters} />}
+      {isLoading ? <Loader /> : <Items items={data.parks} filters={data.states} />}
     </div>
   )
 }
@@ -28,10 +29,3 @@ App.propTypes = {
 }
 
 export default App
-
-
-/*
-Rendering Patterns:
-  {!isLoading && <Navigation filters={filters} sorters={sorters} />}
-  {isLoading ? <Loader /> : <Header>National Perks</Header>}
-*/
