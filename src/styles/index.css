@@ -310,7 +310,94 @@ body {
       .items .item .world-heritage-site:hover .tooltip {
         display: block; }
 
+@media only screen and (max-width: 1468px) {
+  .navigation .navigation-elements {
+    height: 420px; }
+    .navigation .navigation-elements .navigation-element .option {
+      margin: 0 20% 6px 0; }
+      .navigation .navigation-elements .navigation-element .option p {
+        padding: 4px 8px;
+        text-transform: capitalize;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .navigation .navigation-elements .navigation-element .option i {
+        font-size: 18px;
+        padding: 4px; }
+    .navigation .navigation-elements .filters-element .filters {
+      column-count: 4; }
+  .items .item .title {
+    font-size: 2.2em; }
+  .items .item .state-list {
+    display: none; } }
+
+@media only screen and (max-width: 1280px) {
+  .navigation .navigation-elements {
+    height: 480px; }
+    .navigation .navigation-elements .navigation-element .option {
+      margin: 0 30% 6px 0; }
+    .navigation .navigation-elements .filters-element .filters {
+      column-count: 3; } }
+
+@media only screen and (max-width: 1100px) {
+  .navigation .navigation-elements .navigation-element .option p {
+    font-size: 1em; } }
+
+@media only screen and (max-width: 980px) {
+  .navigation .navigation-elements {
+    height: 530px; }
+    .navigation .navigation-elements .navigation-element,
+    .navigation .navigation-elements .sorters-element,
+    .navigation .navigation-elements .filters-element {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 30px; }
+      .navigation .navigation-elements .navigation-element .option,
+      .navigation .navigation-elements .sorters-element .option,
+      .navigation .navigation-elements .filters-element .option {
+        margin: 0 1% 6px 1%;
+        width: 23%; }
+        .navigation .navigation-elements .navigation-element .option p,
+        .navigation .navigation-elements .sorters-element .option p,
+        .navigation .navigation-elements .filters-element .option p {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: calc(100% - 48px); }
+    .navigation .navigation-elements .filters-element .filters {
+      column-count: 1; } }
+
 @media only screen and (max-width: 768px) {
+  .navigation .navigation-trigger {
+    opacity: 1;
+    top: auto;
+    right: 3%;
+    bottom: 1.5%;
+    background: white;
+    padding: 10px;
+    border-radius: 35px;
+    box-shadow: 0 0 5px rgba(18, 18, 18, 0.25); }
+    .navigation .navigation-trigger span {
+      left: 16px;
+      right: 16px; }
+      .navigation .navigation-trigger span.top-line {
+        top: 25px; }
+      .navigation .navigation-trigger span.middle-line {
+        top: 35px; }
+      .navigation .navigation-trigger span.bottom-line {
+        top: 45px; }
+  .navigation .navigation-elements {
+    height: 660px; }
+    .navigation .navigation-elements.active {
+      top: auto;
+      left: 0; }
+    .navigation .navigation-elements.inactive {
+      top: auto;
+      left: 100%; }
+    .navigation .navigation-elements .sorters-element .option {
+      width: 48%; }
+    .navigation .navigation-elements .filters-element .option {
+      width: 31.33%; }
   .items .item {
     width: 100%; }
     .items .item a {
@@ -321,7 +408,8 @@ body {
     .items .item .state-list {
       left: 20px;
       right: auto;
-      bottom: 10px; }
+      bottom: 10px;
+      display: block; }
       .items .item .state-list .state {
         font-size: 1em;
         height: 20px;

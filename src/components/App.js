@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, object } from 'prop-types'
+import { bool } from 'prop-types'
 
 import Loader from './Loader'
 import Header from './Header'
@@ -12,8 +12,8 @@ function App (props) {
   return (
     <div className="app">
       <Header>National Perks</Header>
-      {!isLoading && <Navigation />}
-      {isLoading ? <Loader /> : <Items />}
+      
+      {isLoading ? <Loader /> : <div><Navigation /><Items /></div>}
     </div>
   )
 }
