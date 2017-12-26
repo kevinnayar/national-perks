@@ -11,9 +11,14 @@ function App (props) {
 
   return (
     <div className="app">
-      <Header>National Perks</Header>
-      
-      {isLoading ? <Loader /> : <div><Navigation /><Items /></div>}
+      {isLoading ?
+        <Loader /> :
+        <div className="container">
+          <Header>National Perks</Header>
+          <Navigation />
+          <Items />
+        </div>
+      }
     </div>
   )
 }
