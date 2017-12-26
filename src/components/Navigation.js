@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { object } from 'prop-types'
 
 import Sorters from '../containers/Sorters'
 import Filters from '../containers/Filters'
@@ -38,10 +37,6 @@ class Navigation extends Component {
       </section>
     )
   }
-}
-
-Navigation.propTypes = {
-  filters: object,
 }
 
 export default Navigation

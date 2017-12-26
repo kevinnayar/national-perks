@@ -46,6 +46,14 @@ table {
     opacity: 1;
     transform: translateY(0); } }
 
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(300px); }
+  to {
+    opacity: 1;
+    transform: translateX(0); } }
+
 body {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   background: #fefefe;
@@ -309,6 +317,146 @@ body {
       .items .item .world-heritage-site:hover .tooltip-arrow,
       .items .item .world-heritage-site:hover .tooltip {
         display: block; }
+
+.modal.item {
+  background: #fefefe;
+  margin-top: -90px;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeLeft ease-out 1;
+  animation-fill-mode: forwards;
+  animation-duration: .25s;
+  animation-delay: .25s;
+  margin: 10px 6px 6px;
+  position: relative; }
+  .modal.item .image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center center;
+    position: relative; }
+    .modal.item .image .close {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      background: rgba(18, 18, 18, 0.8);
+      padding: 10px;
+      border-radius: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease-in-out; }
+      .modal.item .image .close:hover {
+        opacity: .8; }
+    .modal.item .image .title {
+      position: absolute;
+      top: 320px;
+      height: 70px;
+      line-height: 70px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 3em;
+      left: 40px;
+      text-shadow: 0 0 10px #121212;
+      color: #fefefe; }
+    .modal.item .image .states {
+      position: absolute;
+      right: 40px;
+      top: 340px;
+      color: #fefefe; }
+      .modal.item .image .states .state {
+        float: left;
+        font-size: 1.3em;
+        margin-left: 10px;
+        background: #fefefe;
+        padding: 6px 10px;
+        border-radius: 2px; }
+  .modal.item .info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; }
+    .modal.item .info .details {
+      padding: 3% 40px;
+      width: 68%; }
+      .modal.item .info .details .description {
+        font-size: 1.8em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        color: #fefefe; }
+      .modal.item .info .details .link {
+        background: #121212;
+        color: #fefefe;
+        font-size: 1.3em;
+        padding: 10px 15px 8px;
+        border-radius: 2px;
+        text-transform: uppercase;
+        margin: 0 10px 60px 0;
+        display: inline-block;
+        width: auto; }
+        .modal.item .info .details .link .material-icons {
+          vertical-align: middle;
+          margin-top: -3px; }
+      .modal.item .info .details .world-heritage-site {
+        display: flex;
+        flex-direction: row;
+        align-items: center; }
+        .modal.item .info .details .world-heritage-site .icon {
+          width: 60px;
+          height: 60px;
+          margin: 0 20px 0 0; }
+        .modal.item .info .details .world-heritage-site .text {
+          font-size: 1.3em;
+          line-height: 1.6;
+          color: #fefefe; }
+          .modal.item .info .details .world-heritage-site .text .text-link {
+            text-decoration: underline; }
+    .modal.item .info .stats {
+      padding: 3% 40px;
+      width: 32%; }
+      .modal.item .info .stats .key {
+        padding: 0 0 20px;
+        font-size: 2em; }
+        .modal.item .info .stats .key .material-icons {
+          display: block;
+          float: left;
+          margin-right: 10px;
+          padding: 10px;
+          border-radius: 30px;
+          background: #121212;
+          color: #fefefe; }
+        .modal.item .info .stats .key .value {
+          height: 44px;
+          line-height: 44px;
+          display: inline-block; }
+  .modal.item .map {
+    width: 100%;
+    height: 600px; }
+    .modal.item .map .custom-marker {
+      width: 32px;
+      height: 18px;
+      margin-left: -16px;
+      margin-top: -9px;
+      background: #fefefe;
+      position: relative; }
+      .modal.item .map .custom-marker:before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-bottom: 8px solid #fefefe; }
+      .modal.item .map .custom-marker:after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-top: 8px solid #fefefe; }
 
 @media only screen and (max-width: 1468px) {
   .navigation .navigation-elements {

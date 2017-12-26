@@ -332,6 +332,175 @@ body {
   }
 }
 
+
+.modal.item {
+  background: $colorLight;
+  margin-top: -90px;
+  z-index: 2;
+
+  opacity: 0;
+  animation: fadeLeft ease-out 1;
+  animation-fill-mode: forwards;
+  animation-duration: .25s;
+  animation-delay: .25s;
+  margin: 10px 6px 6px;
+  position: relative;
+
+
+  .image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    .close {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      background: transparentize($colorDark, 0.2);
+      padding: 10px;
+      border-radius: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease-in-out;
+      &:hover {
+        opacity: .8;
+      }
+    }
+    .title {
+      position: absolute;
+      top: 320px;
+      height: 70px;
+      line-height: 70px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 3em;
+      left: 40px;
+      text-shadow: 0 0 10px $colorDark;
+      color: $colorLight;
+    }
+    .states {
+      position: absolute;
+      right: 40px;
+      top: 340px;
+      color: $colorLight;
+      .state {
+        float: left;
+        font-size: 1.3em;
+        margin-left: 10px;
+        background: $colorLight;
+        padding: 6px 10px;
+        border-radius: 2px;
+      }
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    .details {
+      padding: 3% 40px;
+      width: 68%;
+      .description {
+        font-size: 1.8em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        color: $colorLight;
+      }
+      .link {
+        background: $colorDark;
+        color: $colorLight;
+        font-size: 1.3em;
+        padding: 10px 15px 8px;
+        border-radius: 2px;
+        text-transform: uppercase;
+        margin: 0 10px 60px 0;
+        display: inline-block;
+        width: auto;
+        .material-icons {
+          vertical-align: middle;
+          margin-top: -3px;
+        }
+      }
+      .world-heritage-site {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .icon {
+          width: 60px;
+          height: 60px;
+          margin: 0 20px 0 0;
+        }
+        .text {
+          font-size: 1.3em;
+          line-height: 1.6;
+          color: $colorLight;
+          .text-link {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .stats {
+      padding: 3% 40px;
+      width: 32%;
+      .key {
+        padding: 0 0 20px;
+        font-size: 2em;
+        .material-icons {
+          display: block;
+          float: left;
+          margin-right: 10px;
+          padding: 10px;
+          border-radius: 30px;
+          background: $colorDark;
+          color: $colorLight;
+        }
+        .value {
+          height: 44px;
+          line-height: 44px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+  .map {
+    width: 100%;
+    height: 600px;
+    .custom-marker {
+    	width: 32px;
+    	height: 18px;
+      margin-left: -16px;
+      margin-top: -9px;
+    	background: $colorLight;
+    	position: relative;
+      &:before {
+      	content: '';
+      	position: absolute;
+      	top: -8px;
+      	left: 0;
+      	width: 0;
+      	height: 0;
+      	border-left: 16px solid transparent;
+      	border-right: 16px solid transparent;
+      	border-bottom: 8px solid $colorLight;
+      }
+      &:after {
+      	content: '';
+      	position: absolute;
+      	bottom: -8px;
+      	left: 0;
+      	width: 0;
+      	height: 0;
+      	border-left: 16px solid transparent;
+      	border-right: 16px solid transparent;
+      	border-top: 8px solid $colorLight;
+      }
+    }
+  }
+}
+
+
 @media only screen and (max-width: 1468px) {
   .navigation {
     .navigation-elements {
@@ -371,6 +540,7 @@ body {
   }
 }
 
+
 @media only screen and (max-width: 1280px) {
   .navigation {
     .navigation-elements {
@@ -389,6 +559,7 @@ body {
   }
 }
 
+
 @media only screen and (max-width: 1100px) {
   .navigation {
     .navigation-elements {
@@ -402,6 +573,7 @@ body {
     }
   }
 }
+
 
 @media only screen and (max-width: 980px) {
   .navigation {
@@ -437,6 +609,7 @@ body {
     }
   }
 }
+
 
 @media only screen and (max-width: 768px) {
   .navigation {

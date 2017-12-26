@@ -34,3 +34,13 @@ $colorDark: #121212;
     transform: translateY(0);
   }
 }
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
