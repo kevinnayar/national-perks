@@ -17,3 +17,12 @@ export function updateActiveFilterIds(id, ids) {
     payload: ids.sort()
   }
 }
+
+export const BULK_UPDATE_ACTIVE_FILTER_IDS = 'BULK_UPDATE_ACTIVE_FILTER_IDS'
+
+export function bulkUpdateActiveFilterIds(ids) {
+  return {
+    type: UPDATE_ACTIVE_FILTER_IDS,
+    payload: ids.sort()
+  }
+}

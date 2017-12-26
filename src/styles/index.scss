@@ -105,7 +105,7 @@ body {
     background: darken($colorLight, 5);
     width: 100%;
     padding: 30px 5%;
-    height: 500px;
+    height: 560px;
     box-sizing: border-box;
     transition: all .15s ease-in-out;
     position: fixed;
@@ -114,31 +114,69 @@ body {
       top: 90px;
     }
     &.inactive {
-      top: -500px;
+      top: -650px;
     }
     .navigation-element {
       color: $colorDark;
       float: left;
       box-sizing: border-box;
+      position: relative;
       .title {
         font-size: 2.6em;
         margin-bottom: 1em;
         font-family: $fontHeadings;
         border-bottom: 1px solid lighten($colorDark, 75);
       }
+      .meta-controls {
+        position: absolute;
+        width: 150px;
+        height: 20px;
+        right: 0;
+        top: 2px;
+        .meta-control {
+          float: left;
+          width: 65px;
+          margin-left: 10px;
+          height: 20px;
+          line-height: 20px;
+          background: $colorLight;
+          text-align: center;
+          cursor: pointer;
+          &:hover {
+            box-shadow: 0 2px 5px transparentize($colorDark, .75);
+          }
+        }
+      }
       .option {
-        padding: 8px 16px;
-        margin: 0 50% 6px 0;
-        font-size: 1.2em;
-        text-transform: uppercase;
         display: inline-block;
+        margin: 0 30% 6px 0;
         cursor: pointer;
+        line-height: 20px;
         transition: opacity .25s ease-in-out;
+        p {
+          padding: 8px 16px;
+          font-size: 1.2em;
+          text-transform: uppercase;
+          float: left;
+        }
+        i {
+          float: left;
+          vertical-align: middle;
+          line-height: 20px;
+          padding: 8px;
+          opacity: 0.6;
+        }
         &.active {
           background: $colorPrimary;
+          i {
+            border-right: 1px solid darken($colorPrimary, 25);
+          }
         }
         &.inactive {
           background: lighten($colorDark, 75);
+          i {
+            border-right: 1px solid lighten($colorDark, 50);
+          }
         }
         &:hover {
           opacity: 0.7;
@@ -148,6 +186,8 @@ body {
     .sorters-element {
       width: 23.33%;
       .sorters {
+        .sorter {
+        }
       }
     }
     .filters-element {
@@ -180,6 +220,12 @@ body {
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    &.active {
+      display: block;
+    }
+    &.inactive {
+      display: none;
+    }
     a {
       display: block;
       width: 100%;

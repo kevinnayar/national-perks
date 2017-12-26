@@ -1,8 +1,11 @@
-export const UPDATE_ACTIVE_SORTER_ID = 'UPDATE_ACTIVE_SORTER_ID'
+export const UPDATE_ACTIVE_SORTER = 'UPDATE_ACTIVE_SORTER'
 
-export function updateActiveSorterId(id) {
+export function updateActiveSorter(id, dir) {
   return {
-    type: UPDATE_ACTIVE_SORTER_ID,
-    payload: id
+    type: UPDATE_ACTIVE_SORTER,
+    payload: {
+      id,
+      dir,
+    }
   }
 }

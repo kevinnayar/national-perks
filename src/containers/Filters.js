@@ -4,7 +4,8 @@ import { object, func, array } from 'prop-types'
 
 import {
   fetchActiveFilterIds,
-  updateActiveFilterIds
+  updateActiveFilterIds,
+  bulkUpdateActiveFilterIds,
 } from '../store/active-filters/actions'
 import Filters from '../components/Filters'
 
@@ -25,7 +26,8 @@ class FiltersContainer extends Component {
       <Filters
         filters={this.props.filters}
         activeFilters={this.props.activeFilters}
-        updateActiveFilterIds={this.props.updateActiveFilterIds} />
+        updateActiveFilterIds={this.props.updateActiveFilterIds}
+        bulkUpdateActiveFilterIds={this.props.bulkUpdateActiveFilterIds} />
     )
   }
 }
@@ -39,4 +41,5 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, {
   fetchActiveFilterIds,
   updateActiveFilterIds,
+  bulkUpdateActiveFilterIds,
 })(FiltersContainer)

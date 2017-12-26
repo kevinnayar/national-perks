@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { object } from 'prop-types'
+import { object, array } from 'prop-types'
 
 class Items extends Component {
-  renderItem(items, filters) {
+  renderItem(items, filters, activeFilters) {
     return Object.keys(items).map(park => {
+      let activeState = items[park].states.map(state => activeFilters.includes(state))
+      activeState = activeState.includes(false) ? 'inactive' : 'active'
+
       return (
         <div
-          className={`item`}
+          className={`item ${activeState}`}
           key={items[park].id}>
           <Link to={`/park/${items[park].title.replace(/ /g, '-').toLowerCase()}`}>
             <img
@@ -47,9 +50,15 @@ class Items extends Component {
   }
 
   render() {
+    const {
+      items,
+      filters,
+      activeFilters,
+    } = this.props
+
     return (
       <section className="items">
-        {this.renderItem(this.props.items, this.props.filters)}
+        {this.renderItem(items, filters, activeFilters)}
       </section>
     )
   }
@@ -58,6 +67,7 @@ class Items extends Component {
 Items.propTypes = {
   items: object,
   filters: object,
+  activeFilters: array,
 }
 
 export default Items

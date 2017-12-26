@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { object, func, string } from 'prop-types'
+import { object, func } from 'prop-types'
 
-import { updateActiveSorterId } from '../store/active-sorter/actions'
+import { updateActiveSorter } from '../store/active-sorter/actions'
 import Sorters from '../components/Sorters'
 
 class SortersContainer extends Component {
   static propTypes = {
-    updateActiveSorterId: func,
+    updateActiveSorter: func,
     sorters: object,
-    activeSorter: string,
+    activeSorter: object,
   }
 
   componentDidMount() {
-    this.props.updateActiveSorterId('sorter_name')
+    this.props.updateActiveSorter('sorter_name', 'asc')
   }
 
   render() {
@@ -21,7 +21,7 @@ class SortersContainer extends Component {
       <Sorters
         sorters={this.props.sorters}
         activeSorter={this.props.activeSorter}
-        updateActiveSorterId={this.props.updateActiveSorterId} />
+        updateActiveSorter={this.props.updateActiveSorter} />
     )
   }
 }
@@ -32,4 +32,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { updateActiveSorterId })(SortersContainer)
+export default connect(mapStateToProps, { updateActiveSorter })(SortersContainer)

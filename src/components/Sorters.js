@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
-import { object, string } from 'prop-types'
+import { object } from 'prop-types'
 
 class Sorters extends Component {
-  handleClick(id, ids) {
-    this.props.updateActiveSorterId(id)
+  handleClick(id, dir) {
+    this.props.updateActiveSorter(id, dir)
   }
 
   renderSorter(activeSorter, sorters) {
     return Object.keys(sorters).map(sorter => {
-      const activeState = (activeSorter === sorters[sorter].id) ? 'active' : 'inactive'
+      const activeState = (activeSorter.id === sorters[sorter].id) ? 'active' : 'inactive'
 
       return (
-        <p
+        <div
           className={`sorter option ${activeState}`}
-          key={sorters[sorter].id}
-          onClick={() => this.handleClick(sorters[sorter].id)}>
-          {sorters[sorter].title}
-        </p>
+          key={sorters[sorter].id}>
+          <i
+            className="material-icons icon-right"
+            onClick={() => this.handleClick(sorters[sorter].id, 'asc')}>
+            keyboard_arrow_down
+          </i>
+          <p>{sorters[sorter].title}</p>
+        </div>
       )
     })
   }
@@ -35,7 +39,17 @@ class Sorters extends Component {
 
 Sorters.propTypes = {
   sorters: object,
-  activeSorter: string,
+  activeSorter: object,
 }
 
 export default Sorters
+
+/*
+
+<i
+  className="material-icons icon-left"
+  onClick={() => this.handleClick(sorters[sorter].id, 'desc')}>
+  keyboard_arrow_up
+</i>
+
+*/
