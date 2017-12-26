@@ -7,27 +7,19 @@ import Navigation from './Navigation'
 import Items from '../containers/Items'
 
 function App (props) {
-  const {
-    isLoading,
-    items,
-    filters,
-    sorters,
-  } = props
+  const { isLoading } = props
 
   return (
     <div className="app">
       <Header>National Perks</Header>
-      {!isLoading && <Navigation filters={filters} sorters={sorters} />}
-      {isLoading ? <Loader /> : <Items items={items} filters={filters} />}
+      {!isLoading && <Navigation />}
+      {isLoading ? <Loader /> : <Items />}
     </div>
   )
 }
 
 App.propTypes = {
   isLoading: bool,
-  items: object,
-  filters: object,
-  sorters: object,
 }
 
 export default App

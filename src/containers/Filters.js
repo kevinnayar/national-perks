@@ -13,6 +13,7 @@ class FiltersContainer extends Component {
   static propTypes = {
     fetchActiveFilterIds: func,
     updateActiveFilterIds: func,
+    bulkUpdateActiveFilterIds: func,
     filters: object,
     activeFilters: array,
   }
@@ -34,7 +35,8 @@ class FiltersContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    activeFilters: state.activeFilters
+    filters: state.filters,
+    activeFilters: state.activeFilters,
   }
 }
 

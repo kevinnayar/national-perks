@@ -8,12 +8,7 @@ import Sorters from '../components/Sorters'
 class SortersContainer extends Component {
   static propTypes = {
     updateActiveSorter: func,
-    sorters: object,
     activeSorter: object,
-  }
-
-  componentDidMount() {
-    this.props.updateActiveSorter('sorter_name', 'asc')
   }
 
   render() {
@@ -28,7 +23,8 @@ class SortersContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    activeSorter: state.activeSorter
+    sorters: state.sorters,
+    activeSorter: state.activeSorter,
   }
 }
 

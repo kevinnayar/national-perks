@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { object, array } from 'prop-types'
 
-//import { updateActiveSorterId } from '../store/active-sorter/actions'
 import Items from '../components/Items'
 
 class ItemsContainer extends Component {
@@ -10,6 +9,8 @@ class ItemsContainer extends Component {
     items: object,
     filters: object,
     activeFilters: array,
+    sorters: object,
+    activeSorter: object,
   }
 
   render() {
@@ -17,7 +18,9 @@ class ItemsContainer extends Component {
       <Items
         items={this.props.items}
         filters={this.props.filters}
-        activeFilters={this.props.activeFilters} />
+        activeFilters={this.props.activeFilters}
+        sorters={this.props.sorters}
+        activeSorter={this.props.activeSorter} />
     )
   }
 }
@@ -27,6 +30,8 @@ function mapStateToProps(state) {
     items: state.items,
     filters: state.filters,
     activeFilters: state.activeFilters,
+    sorters: state.sorters,
+    activeSorter: state.activeSorter,
   }
 }
 

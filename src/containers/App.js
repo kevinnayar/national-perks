@@ -40,12 +40,7 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <App
-        isLoading={this.state.isLoading}
-        items={this.props.items}
-        filters={this.props.filters}
-        sorters={this.props.sorters}
-      />
+      <App isLoading={this.state.isLoading} />
     )
   }
 }

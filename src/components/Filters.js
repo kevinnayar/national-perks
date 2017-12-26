@@ -16,7 +16,7 @@ class Filters extends Component {
   }
 
   renderFilter(activeFilters, filters) {
-    return Object.keys(filters).map(state => {
+    return Object.keys(filters).sort().map(state => {
       const activeState = (activeFilters.includes(filters[state].id)) ? 'active' : 'inactive'
 
       return (
@@ -24,7 +24,10 @@ class Filters extends Component {
           className={`filter option ${activeState}`}
           key={filters[state].id}
           onClick={() => this.handleFilterClick(filters[state].id, activeFilters)}>
-          {(activeState === 'active') ? <i className="material-icons">check_box</i> : <i className="material-icons">check_box_outline_blank</i>}
+          {(activeState === 'active') ?
+            <i className="material-icons">check_box</i> : 
+            <i className="material-icons">check_box_outline_blank</i>
+          }
           <p>{filters[state].title}</p>
         </div>
       )

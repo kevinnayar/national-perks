@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { object } from 'prop-types'
 
 class Sorters extends Component {
-  handleClick(id, dir) {
-    this.props.updateActiveSorter(id, dir)
+  handleClick(id) {
+    this.props.updateActiveSorter(id)
   }
-
+  
   renderSorter(activeSorter, sorters) {
     return Object.keys(sorters).map(sorter => {
       const activeState = (activeSorter.id === sorters[sorter].id) ? 'active' : 'inactive'
@@ -13,12 +13,12 @@ class Sorters extends Component {
       return (
         <div
           className={`sorter option ${activeState}`}
-          key={sorters[sorter].id}>
-          <i
-            className="material-icons icon-right"
-            onClick={() => this.handleClick(sorters[sorter].id, 'asc')}>
-            keyboard_arrow_down
-          </i>
+          key={sorters[sorter].id}
+          onClick={() => this.handleClick(sorters[sorter].id)}>
+          {(activeState === 'active') ?
+            <i className="material-icons">radio_button_checked</i> :
+            <i className="material-icons">radio_button_unchecked</i>
+          }
           <p>{sorters[sorter].title}</p>
         </div>
       )

@@ -32,8 +32,8 @@ class Navigation extends Component {
           <span className="bottom-line"/>
         </div>
         <div className={`navigation-elements ${activeState}`}>
-          <Sorters sorters={this.props.sorters} />
-          <Filters filters={this.props.filters} />
+          <Sorters />
+          <Filters />
         </div>
       </section>
     )
@@ -42,7 +42,6 @@ class Navigation extends Component {
 
 Navigation.propTypes = {
   filters: object,
-  sorters: object,
 }
 
 export default Navigation

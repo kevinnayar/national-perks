@@ -6,8 +6,7 @@ export default function(state = {}, action) {
   switch (action.type) {
 
     case FETCH_FILTERS: {
-      const data = [ ...action.payload.data ]
-      const normalized = normalize(data, [park])
+      const normalized = normalize([ ...action.payload.data ], [park])
 
       return {
         ...state,

@@ -49,8 +49,9 @@ body {
     font-family: $fontHeadings;
     font-size: 3em;
     transition: opacity 0.25s linear;
+    opacity: 0.85;
     &:hover {
-      opacity: 0.6;
+      opacity: 1;
     }
   }
 }
@@ -66,8 +67,9 @@ body {
     height: 50px;
     z-index: 2;
     transition: opacity 0.25s linear;
+    opacity: 0.85;
     &:hover {
-      opacity: 0.6;
+      opacity: 1;
     }
     span {
       background: $colorDark;
@@ -124,6 +126,7 @@ body {
       .title {
         font-size: 2.6em;
         margin-bottom: 1em;
+        padding-bottom: .3em;
         font-family: $fontHeadings;
         border-bottom: 1px solid lighten($colorDark, 75);
       }
@@ -152,7 +155,7 @@ body {
         margin: 0 30% 6px 0;
         cursor: pointer;
         line-height: 20px;
-        transition: opacity .25s ease-in-out;
+        transition: all .25s ease-in-out;
         p {
           padding: 8px 16px;
           font-size: 1.2em;
@@ -168,18 +171,23 @@ body {
         }
         &.active {
           background: $colorPrimary;
+          &:hover {
+            background: darken($colorPrimary, 10);
+            box-shadow: 0 2px 5px transparentize($colorDark, .75);
+          }
           i {
             border-right: 1px solid darken($colorPrimary, 25);
           }
         }
         &.inactive {
           background: lighten($colorDark, 75);
+          &:hover {
+            background: lighten($colorDark, 70);
+            box-shadow: 0 2px 5px transparentize($colorDark, .75);
+          }
           i {
             border-right: 1px solid lighten($colorDark, 50);
           }
-        }
-        &:hover {
-          opacity: 0.7;
         }
       }
     }
@@ -211,7 +219,16 @@ body {
   animation-duration: .25s;
   animation-delay: .25s;
   margin-left: 6px;
-  overflow: hidden;
+  position: relative;
+  .no-item {
+    position: absolute;
+    top: 35px;
+    left: calc(5% - 6px);
+    width: 250px;
+    font-size: 1.4em;
+    line-height: 1.6;
+    color: lighten($colorDark, 50);
+  }
   .item {
     float: left;
     width: 50%;
