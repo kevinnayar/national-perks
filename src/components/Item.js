@@ -15,8 +15,6 @@ class Item extends Component {
         attribution: '@Attribution',
         attribution_url: ''
       }
-    console.log(activeItem)
-
 
     return (
       <div className="item modal">
