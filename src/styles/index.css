@@ -48,10 +48,8 @@ table {
 
 @keyframes fadeLeft {
   from {
-    opacity: 0;
-    transform: translateX(300px); }
+    transform: translateX(414px); }
   to {
-    opacity: 1;
     transform: translateX(0); } }
 
 body {
@@ -223,7 +221,6 @@ body {
   animation: fadeIn ease-out 1;
   animation-fill-mode: forwards;
   animation-duration: .25s;
-  animation-delay: .25s;
   margin-left: 6px;
   position: relative; }
   .items .no-item {
@@ -322,24 +319,33 @@ body {
   background: #fefefe;
   margin-top: -90px;
   z-index: 2;
-  opacity: 0;
   animation: fadeLeft ease-out 1;
   animation-fill-mode: forwards;
   animation-duration: .25s;
-  animation-delay: .25s;
   margin: 10px 6px 6px;
   position: relative; }
   .modal.item .image {
     width: 100%;
-    height: 400px;
+    height: 460px;
     background-size: cover;
     background-position: center center;
     position: relative; }
+    .modal.item .image .title {
+      position: absolute;
+      left: 20px;
+      bottom: 0;
+      height: 70px;
+      line-height: 70px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 3em;
+      text-shadow: 0 0 10px #121212;
+      color: #fefefe; }
     .modal.item .image .close {
       position: absolute;
-      right: 40px;
-      top: 40px;
-      background: rgba(18, 18, 18, 0.8);
+      right: 20px;
+      top: 20px;
+      background: #fefefe;
       padding: 10px;
       border-radius: 30px;
       text-align: center;
@@ -347,17 +353,13 @@ body {
       transition: all 0.25s ease-in-out; }
       .modal.item .image .close:hover {
         opacity: .8; }
-    .modal.item .image .title {
+    .modal.item .image .image-attribution {
       position: absolute;
-      top: 320px;
-      height: 70px;
-      line-height: 70px;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 3em;
-      left: 40px;
-      text-shadow: 0 0 10px #121212;
-      color: #fefefe; }
+      right: 20px;
+      bottom: 20px;
+      font-size: 1.4em;
+      color: #fefefe;
+      text-shadow: 0 0 10px #121212; }
     .modal.item .image .states {
       position: absolute;
       right: 40px;

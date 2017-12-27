@@ -217,7 +217,6 @@ body {
   animation: fadeIn ease-out 1;
   animation-fill-mode: forwards;
   animation-duration: .25s;
-  animation-delay: .25s;
   margin-left: 6px;
   position: relative;
   .no-item {
@@ -337,27 +336,34 @@ body {
   background: $colorLight;
   margin-top: -90px;
   z-index: 2;
-
-  opacity: 0;
   animation: fadeLeft ease-out 1;
   animation-fill-mode: forwards;
   animation-duration: .25s;
-  animation-delay: .25s;
   margin: 10px 6px 6px;
   position: relative;
-
-
   .image {
     width: 100%;
-    height: 400px;
+    height: 460px;
     background-size: cover;
     background-position: center center;
     position: relative;
+    .title {
+      position: absolute;
+      left: 20px;
+      bottom: 0;
+      height: 70px;
+      line-height: 70px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 3em;
+      text-shadow: 0 0 10px $colorDark;
+      color: $colorLight;
+    }
     .close {
       position: absolute;
-      right: 40px;
-      top: 40px;
-      background: transparentize($colorDark, 0.2);
+      right: 20px;
+      top: 20px;
+      background: $colorLight;
       padding: 10px;
       border-radius: 30px;
       text-align: center;
@@ -367,17 +373,13 @@ body {
         opacity: .8;
       }
     }
-    .title {
+    .image-attribution {
       position: absolute;
-      top: 320px;
-      height: 70px;
-      line-height: 70px;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 3em;
-      left: 40px;
-      text-shadow: 0 0 10px $colorDark;
+      right: 20px;
+      bottom: 20px;
+      font-size: 1.4em;
       color: $colorLight;
+      text-shadow: 0 0 10px $colorDark;
     }
     .states {
       position: absolute;

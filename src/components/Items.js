@@ -57,7 +57,7 @@ class Items extends Component {
           <Link to={`/park/${park.title.replace(/ /g, '-').toLowerCase()}`}>
             <img
               className="image"
-              src={`/images/thumbnails/${park.image}`}
+              src={`/images/thumbnails/${park.image.url}`}
               alt={park.title} />
             <h1 className="title">{park.title}</h1>
 
