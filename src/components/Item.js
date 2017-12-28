@@ -4,32 +4,68 @@ import { Link } from 'react-router-dom'
 
 class Item extends Component {
   render() {
-    const { activeItem } = this.props
+    const { activeItem, filters } = this.props
     const image = activeItem.image ?
       {
-        url: `/images/originals/${activeItem.image.url}` ,
+        url: activeItem.image.url,
         attribution: activeItem.image.attribution,
         attribution_url: activeItem.image.attribution_url
       } : {
-        url: '/images/no-image.jpg',
-        attribution: '@Attribution',
+        url: '',
+        attribution: '',
         attribution_url: ''
       }
+    const mapLink = activeItem.id ? activeItem.id.replace('park_', '') : ''
+    const states = activeItem.states ? activeItem.states : []
 
     return (
       <div className="item modal">
-        <div className="image" style={{backgroundImage: `url('${image.url}')`}}>
+        <div className="image" style={{backgroundImage: `url('/images/originals/${image.url}')`}}>
           <h1 className="title">{activeItem.title}</h1>
           <Link to="/">
             <i className="material-icons close">close</i>
           </Link>
-          <a className="image-attribution" href={image.attribution_url} target="_blank" rel="noopener noreferrer">
+          <a className="attribution" href={image.attribution_url} target="_blank" rel="noopener noreferrer">
             Image credit: {image.attribution}
           </a>
         </div>
-        <div className="item-content">
-        </div>
-        <div className="item-sidebar">
+        <div className="content">
+          <div className="sidebar">
+            <div className="stat">
+              <i className="material-icons key">watch_later</i>
+              <p className="value">Established on {activeItem.date_established_readable}</p>
+            </div>
+            <div className="stat">
+              <i className="material-icons key">group</i>
+              <p className="value">{activeItem.visitors} Annual Visitors</p>
+            </div>
+            <div className="stat link">
+              <a href={activeItem.nps_link} target="_blank" rel="noopener noreferrer">
+                <i className="material-icons key">arrow_forward</i>
+                <p className="value">Visit NPS Page</p>
+              </a>
+            </div>
+            <div className="stat link">
+              <a href={`http://npmaps.com/${mapLink}`} target="_blank" rel="noopener noreferrer">
+                <i className="material-icons key">map</i>
+                <p className="value">Download Park Maps</p>
+              </a>
+            </div>
+          </div>
+          <div className="main">
+            <p className="description">{activeItem.description}</p>
+            <ul className="state-list">
+              {states.map(state => {
+                return (
+                  <li
+                    className="state"
+                    key={`${activeItem.id}:${state}`}>
+                      {filters[state].title}
+                    </li>
+                  )
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     )
@@ -41,25 +77,3 @@ Item.propTypes = {
 }
 
 export default Item
-
-
-/*
-return (
-  <div className="park-modal">
-
-    <h1 className="title">{park.title}</h1>
-    <ul className="state-list">
-      {park.states.map(state => <li className="state" key={`${id}-${state}`}>{state}</li>)}
-    </ul>
-
-    {park.world_heritage_site && (
-      <div className="world-heritage-site">
-        <img className="icon" src="/images/world-heritage-site.svg" alt="World Heritage Site" />
-        <div className="tooltip-arrow"></div>
-        <p className="tooltip">
-        This U.S. Natonal Park is a designated World Heritage Site. WHS are landmarks or areas which are recognized by the United Nations Educational, Scientific and Cultural Organization (UNESCO) as having cultural, historical, scientific or other form of significance, and is legally protected by international treaties.
-        </p>
-      </div>
-    )}
-  </div>
-  */

@@ -308,6 +308,7 @@ body {
         position: absolute;
         right: 30px;
         top: 65px;
+        z-index: 1;
       }
       .tooltip {
         display: none;
@@ -320,6 +321,7 @@ body {
         top: 95px;
         font-size: 1.2em;
         line-height: 1.5;
+        box-shadow: 0 0 3px lighten($colorDark, 25);
       }
       &:hover {
         .tooltip-arrow,
@@ -340,7 +342,7 @@ body {
   animation-fill-mode: forwards;
   animation-duration: .25s;
   margin: 10px 6px 6px;
-  position: relative;
+  position: fixed;
   .image {
     width: 100%;
     height: 460px;
@@ -349,10 +351,8 @@ body {
     position: relative;
     .title {
       position: absolute;
-      left: 20px;
-      bottom: 0;
-      height: 70px;
-      line-height: 70px;
+      left: 40px;
+      bottom: 40px;
       font-weight: 900;
       text-transform: uppercase;
       font-size: 3em;
@@ -373,95 +373,85 @@ body {
         opacity: .8;
       }
     }
-    .image-attribution {
+    .attribution {
       position: absolute;
-      right: 20px;
-      bottom: 20px;
+      right: 40px;
+      bottom: 40px;
       font-size: 1.4em;
       color: $colorLight;
       text-shadow: 0 0 10px $colorDark;
     }
-    .states {
-      position: absolute;
-      right: 40px;
-      top: 340px;
-      color: $colorLight;
-      .state {
-        float: left;
-        font-size: 1.3em;
-        margin-left: 10px;
-        background: $colorLight;
-        padding: 6px 10px;
-        border-radius: 2px;
-      }
-    }
   }
-  .info {
+  .content {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    .details {
-      padding: 3% 40px;
-      width: 68%;
-      .description {
-        font-size: 1.8em;
-        line-height: 1.6;
-        margin-bottom: 30px;
-        color: $colorLight;
-      }
-      .link {
-        background: $colorDark;
-        color: $colorLight;
-        font-size: 1.3em;
-        padding: 10px 15px 8px;
-        border-radius: 2px;
-        text-transform: uppercase;
-        margin: 0 10px 60px 0;
-        display: inline-block;
-        width: auto;
-        .material-icons {
-          vertical-align: middle;
-          margin-top: -3px;
-        }
-      }
-      .world-heritage-site {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        .icon {
-          width: 60px;
-          height: 60px;
-          margin: 0 20px 0 0;
-        }
-        .text {
-          font-size: 1.3em;
-          line-height: 1.6;
-          color: $colorLight;
-          .text-link {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-    .stats {
-      padding: 3% 40px;
-      width: 32%;
-      .key {
+    .sidebar {
+      padding: 3% 0 3% 40px;
+      width: 25%;
+      box-sizing: border-box;
+      .stat {
         padding: 0 0 20px;
-        font-size: 2em;
-        .material-icons {
+        .key.material-icons {
+          font-size: 2em;
           display: block;
           float: left;
           margin-right: 10px;
           padding: 10px;
           border-radius: 30px;
-          background: $colorDark;
+          background: lighten($colorDark, 50);
           color: $colorLight;
         }
         .value {
-          height: 44px;
-          line-height: 44px;
-          display: inline-block;
+          font-size: 1.4em;
+          height: 40px;
+          line-height: 40px;
+          color: lighten($colorDark, 35);
+        }
+        &.link {
+          .key.material-icons {
+            transition: all .3s linear;
+            background: $colorPrimary;
+          }
+          .value {
+            transition: all .3s linear;
+            color: darken($colorPrimary, 15);
+          }
+          &:hover {
+            cursor: pointer;
+            .key.material-icons {
+              background: darken($colorPrimary, 10);
+            }
+            .value {
+              text-decoration: underline;
+              color: darken($colorPrimary, 25);
+            }
+          }
+        }
+      }
+    }
+    .main {
+      padding: 3% 40px;
+      width: 65%;
+      box-sizing: border-box;
+      position: relative;
+      .description {
+        font-size: 2em;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+      .state-list {
+        position: absolute;
+        height: 30px;
+        .state {
+          float: left;
+          line-height: 30px;
+          height: 30px;
+          padding: 0 10px;
+          margin-right: 10px;
+          background: darken($colorLight, 5);
+          color: $colorDark;
+          font-size: 1.4em;
         }
       }
     }

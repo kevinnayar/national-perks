@@ -295,7 +295,8 @@ body {
         border-color: transparent transparent #fefefe transparent;
         position: absolute;
         right: 30px;
-        top: 65px; }
+        top: 65px;
+        z-index: 1; }
       .items .item .world-heritage-site .tooltip {
         display: none;
         position: absolute;
@@ -306,7 +307,8 @@ body {
         right: 0;
         top: 95px;
         font-size: 1.2em;
-        line-height: 1.5; }
+        line-height: 1.5;
+        box-shadow: 0 0 3px #525252; }
       .items .item .world-heritage-site:hover .tooltip-arrow,
       .items .item .world-heritage-site:hover .tooltip {
         display: block; }
@@ -319,7 +321,7 @@ body {
   animation-fill-mode: forwards;
   animation-duration: .25s;
   margin: 10px 6px 6px;
-  position: relative; }
+  position: fixed; }
   .modal.item .image {
     width: 100%;
     height: 460px;
@@ -328,10 +330,8 @@ body {
     position: relative; }
     .modal.item .image .title {
       position: absolute;
-      left: 20px;
-      bottom: 0;
-      height: 70px;
-      line-height: 70px;
+      left: 40px;
+      bottom: 40px;
       font-weight: 900;
       text-transform: uppercase;
       font-size: 3em;
@@ -349,82 +349,71 @@ body {
       transition: all 0.25s ease-in-out; }
       .modal.item .image .close:hover {
         opacity: .8; }
-    .modal.item .image .image-attribution {
+    .modal.item .image .attribution {
       position: absolute;
-      right: 20px;
-      bottom: 20px;
+      right: 40px;
+      bottom: 40px;
       font-size: 1.4em;
       color: #fefefe;
       text-shadow: 0 0 10px #121212; }
-    .modal.item .image .states {
-      position: absolute;
-      right: 40px;
-      top: 340px;
-      color: #fefefe; }
-      .modal.item .image .states .state {
-        float: left;
-        font-size: 1.3em;
-        margin-left: 10px;
-        background: #fefefe;
-        padding: 6px 10px;
-        border-radius: 2px; }
-  .modal.item .info {
+  .modal.item .content {
     display: flex;
     flex-direction: row;
     align-items: flex-start; }
-    .modal.item .info .details {
-      padding: 3% 40px;
-      width: 68%; }
-      .modal.item .info .details .description {
-        font-size: 1.8em;
-        line-height: 1.6;
-        margin-bottom: 30px;
-        color: #fefefe; }
-      .modal.item .info .details .link {
-        background: #121212;
-        color: #fefefe;
-        font-size: 1.3em;
-        padding: 10px 15px 8px;
-        border-radius: 2px;
-        text-transform: uppercase;
-        margin: 0 10px 60px 0;
-        display: inline-block;
-        width: auto; }
-        .modal.item .info .details .link .material-icons {
-          vertical-align: middle;
-          margin-top: -3px; }
-      .modal.item .info .details .world-heritage-site {
-        display: flex;
-        flex-direction: row;
-        align-items: center; }
-        .modal.item .info .details .world-heritage-site .icon {
-          width: 60px;
-          height: 60px;
-          margin: 0 20px 0 0; }
-        .modal.item .info .details .world-heritage-site .text {
-          font-size: 1.3em;
-          line-height: 1.6;
-          color: #fefefe; }
-          .modal.item .info .details .world-heritage-site .text .text-link {
-            text-decoration: underline; }
-    .modal.item .info .stats {
-      padding: 3% 40px;
-      width: 32%; }
-      .modal.item .info .stats .key {
-        padding: 0 0 20px;
-        font-size: 2em; }
-        .modal.item .info .stats .key .material-icons {
+    .modal.item .content .sidebar {
+      padding: 3% 0 3% 40px;
+      width: 25%;
+      box-sizing: border-box; }
+      .modal.item .content .sidebar .stat {
+        padding: 0 0 20px; }
+        .modal.item .content .sidebar .stat .key.material-icons {
+          font-size: 2em;
           display: block;
           float: left;
           margin-right: 10px;
           padding: 10px;
           border-radius: 30px;
-          background: #121212;
+          background: #929292;
           color: #fefefe; }
-        .modal.item .info .stats .key .value {
-          height: 44px;
-          line-height: 44px;
-          display: inline-block; }
+        .modal.item .content .sidebar .stat .value {
+          font-size: 1.4em;
+          height: 40px;
+          line-height: 40px;
+          color: #6b6b6b; }
+        .modal.item .content .sidebar .stat.link .key.material-icons {
+          transition: all .3s linear;
+          background: #5fd2c8; }
+        .modal.item .content .sidebar .stat.link .value {
+          transition: all .3s linear;
+          color: #32b2a7; }
+        .modal.item .content .sidebar .stat.link:hover {
+          cursor: pointer; }
+          .modal.item .content .sidebar .stat.link:hover .key.material-icons {
+            background: #38c6ba; }
+          .modal.item .content .sidebar .stat.link:hover .value {
+            text-decoration: underline;
+            color: #278b82; }
+    .modal.item .content .main {
+      padding: 3% 40px;
+      width: 65%;
+      box-sizing: border-box;
+      position: relative; }
+      .modal.item .content .main .description {
+        font-size: 2em;
+        line-height: 1.8;
+        margin-bottom: 20px; }
+      .modal.item .content .main .state-list {
+        position: absolute;
+        height: 30px; }
+        .modal.item .content .main .state-list .state {
+          float: left;
+          line-height: 30px;
+          height: 30px;
+          padding: 0 10px;
+          margin-right: 10px;
+          background: #f1f1f1;
+          color: #121212;
+          font-size: 1.4em; }
   .modal.item .map {
     width: 100%;
     height: 600px; }
