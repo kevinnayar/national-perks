@@ -445,6 +445,86 @@ body {
         border-right: 16px solid transparent;
         border-top: 8px solid #fefefe; }
 
+.map {
+  background: #525252;
+  margin-top: -90px;
+  z-index: 2;
+  animation: fadeLeft ease-out 1;
+  animation-fill-mode: forwards;
+  animation-duration: .25s;
+  margin: 10px 6px 6px;
+  position: fixed;
+  width: calc(100% - 12px);
+  height: calc(100% - 16px); }
+  .map .map-close-trigger {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+    transition: opacity 0.25s linear;
+    opacity: 0.85; }
+    .map .map-close-trigger:hover {
+      opacity: 1; }
+    .map .map-close-trigger span {
+      background: #fefefe;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      transform-origin: center center 0;
+      transition: all .3s ease-in-out 0.1s; }
+      .map .map-close-trigger span.top-line {
+        top: 50%;
+        transform: rotateZ(135deg); }
+      .map .map-close-trigger span.bottom-line {
+        top: 50%;
+        transform: rotateZ(-135deg); }
+  .map .google-map {
+    margin-top: 90px;
+    width: 100%;
+    height: calc(100% - 90px); }
+    .map .google-map .map-marker {
+      text-align: center;
+      width: 200px; }
+      .map .google-map .map-marker .map-marker-icon {
+        color: #121212;
+        text-shadow: 0 0 3px #fefefe; }
+      .map .google-map .map-marker .overlay-arrow {
+        display: none;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 15px 10px 10px 10px;
+        border-color: #fefefe transparent transparent;
+        position: absolute;
+        left: 90px;
+        top: -20px;
+        z-index: 1; }
+      .map .google-map .map-marker .overlay {
+        background: #fefefe;
+        width: calc(100% - 20px);
+        line-height: 30px;
+        height: 30px;
+        padding: 0 10px;
+        color: #121212;
+        font-size: 1.4em;
+        margin-top: -75px;
+        font-family: "Montserrat", Helvetica, Arial, sans-serif;
+        box-shadow: 0 0 3px #929292; }
+        .map .google-map .map-marker .overlay i, .map .google-map .map-marker .overlay p {
+          float: left; }
+      .map .google-map .map-marker.active .map-marker-icon {
+        color: #5fd2c8; }
+      .map .google-map .map-marker.active .overlay-arrow,
+      .map .google-map .map-marker.active .overlay {
+        display: block; }
+      .map .google-map .map-marker.inactive .overlay-arrow,
+      .map .google-map .map-marker.inactive .overlay {
+        display: none; }
+
 @media only screen and (max-width: 1468px) {
   .navigation .navigation-elements {
     height: 420px; }

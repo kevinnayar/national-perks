@@ -21,14 +21,6 @@ class ItemContainer extends Component {
   }
 
   render() {
-
-    //console.log('this.props.filters', this.props.filters)
-
-    if (this.props.activeItem.states) {
-      console.log('ready:')
-      console.log('this.props.activeItem.states', this.props.activeItem.states)
-    }
-
     return (
       <Item
         activeItem={this.props.activeItem}

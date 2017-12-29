@@ -493,6 +493,106 @@ body {
 }
 
 
+.map {
+  background: lighten($colorDark, 25);
+  margin-top: -90px;
+  z-index: 2;
+  animation: fadeLeft ease-out 1;
+  animation-fill-mode: forwards;
+  animation-duration: .25s;
+  margin: 10px 6px 6px;
+  position: fixed;
+  width: calc(100% - 12px);
+  height: calc(100% - 16px);
+  .map-close-trigger {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+    transition: opacity 0.25s linear;
+    opacity: 0.85;
+    &:hover {
+      opacity: 1;
+    }
+    span {
+      background: $colorLight;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      transform-origin: center center 0;
+      transition: all .3s ease-in-out 0.1s;
+      &.top-line {
+        top: 50%;
+        transform: rotateZ(135deg);
+      }
+      &.bottom-line {
+        top: 50%;
+        transform: rotateZ(-135deg);
+      }
+    }
+  }
+  .google-map {
+    margin-top: 90px;
+    width: 100%;
+    height: calc(100% - 90px);
+    .map-marker {
+      text-align: center;
+      width: 200px;
+      .map-marker-icon {
+        color: $colorDark;
+        text-shadow: 0 0 3px $colorLight;
+      }
+      .overlay-arrow {
+        display: none;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 15px 10px 10px 10px;
+        border-color: $colorLight transparent transparent;
+        position: absolute;
+        left: 90px;
+        top: -20px;
+        z-index: 1;
+      }
+      .overlay {
+        background: $colorLight;
+        width: calc(100% - 20px);
+        line-height: 30px;
+        height: 30px;
+        padding: 0 10px;
+        color: $colorDark;
+        font-size: 1.4em;
+        margin-top: -75px;
+        font-family: $fontBody;
+        box-shadow: 0 0 3px lighten($colorDark, 50);
+        i, p {
+          float: left;
+        }
+      }
+      &.active {
+        .map-marker-icon {
+          color: $colorPrimary;
+        }
+        .overlay-arrow,
+        .overlay {
+          display: block;
+        }
+      }
+      &.inactive {
+        .overlay-arrow,
+        .overlay {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
 @media only screen and (max-width: 1468px) {
   .navigation {
     .navigation-elements {

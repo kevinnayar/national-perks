@@ -1,6 +1,6 @@
 import React from 'react'
-import { string } from 'prop-types'
 import { Link } from 'react-router-dom'
+import { string } from 'prop-types'
 
 const Header = ({children}) => {
   return (

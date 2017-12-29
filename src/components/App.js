@@ -7,6 +7,7 @@ import Header from './Header'
 import Navigation from './Navigation'
 import Items from '../containers/Items'
 import Item from '../containers/Item'
+import Map from '../containers/Map'
 
 function App (props) {
   const { isLoading } = props
@@ -31,6 +32,12 @@ function App (props) {
           <Route path='/park/:activeItemId' exact render={({ match }) => (
             <Item activeItemId={`park_${match.params.activeItemId}`} />
           )} />
+        </Switch>
+      )}
+
+      {!isLoading && (
+        <Switch>
+          <Route path='/map' exact component={Map} />
         </Switch>
       )}
 

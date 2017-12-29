@@ -35,4 +35,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {  })(ItemsContainer)
+export default connect(mapStateToProps)(ItemsContainer)
