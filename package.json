@@ -1,6 +1,7 @@
 {
   "name": "national-perks",
   "version": "0.1.0",
+  "homepage": "https://kevinnayar.github.io/national-perks",
   "devDependencies": {
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
@@ -9,6 +10,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "deep-freeze": "0.0.1",
+    "gh-pages": "^1.1.0",
     "google-map-react": "^0.26.0",
     "google-maps-react": "^1.1.2",
     "normalizr": "^3.2.4",
@@ -25,6 +27,8 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
