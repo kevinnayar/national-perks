@@ -25,8 +25,9 @@ class Item extends Component {
       <div className="item modal">
         <div className="image" style={{backgroundImage: `url('images/originals/${image.url}')`}}>
           <h1 className="title">{activeItem.title}</h1>
-          <div onClick={() => history.goBack()}>
-            <i className="material-icons close">close</i>
+          <div className="item-close-trigger" onClick={() => history.goBack()}>
+            <span className="top-line" />
+            <span className="bottom-line" />
           </div>
           <a className="attribution" href={image.attribution_url} target="_blank" rel="noopener noreferrer">
             Image credit: {image.attribution}

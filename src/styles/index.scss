@@ -213,10 +213,6 @@ body {
 
 .items {
   margin-top: 90px;
-  // opacity: 0;
-  // animation: fadeIn ease-out 1;
-  // animation-fill-mode: forwards;
-  // animation-duration: .25s;
   margin-left: 6px;
   position: relative;
   .no-item {
@@ -336,13 +332,13 @@ body {
 
 .modal.item {
   background: $colorLight;
-  margin-top: -90px;
   z-index: 2;
   animation: fadeLeft ease-out 1;
   animation-fill-mode: forwards;
   animation-duration: .25s;
   margin: 10px 6px 6px;
   position: fixed;
+  height: calc(100% - 16px);
   .image {
     width: 100%;
     height: 460px;
@@ -359,18 +355,38 @@ body {
       text-shadow: 0 0 10px $colorDark;
       color: $colorLight;
     }
-    .close {
-      position: absolute;
+    .item-close-trigger {
+      cursor: pointer;
+      position: fixed;
       right: 20px;
       top: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      z-index: 2;
+      transition: all 0.25s linear;
       background: $colorLight;
-      padding: 10px;
-      border-radius: 30px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.25s ease-in-out;
+      span {
+        background: lighten($colorDark, 15);
+        height: 1px;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        transform-origin: center center 0;
+        transition: all .3s ease-in-out 0.1s;
+        &.top-line {
+          top: 50%;
+          transform: rotateZ(135deg);
+        }
+        &.bottom-line {
+          top: 50%;
+          transform: rotateZ(-135deg);
+        }
+      }
       &:hover {
-        opacity: .8;
+        span {
+          background: $colorDark;
+        }
       }
     }
     .attribution {
@@ -453,40 +469,6 @@ body {
           color: $colorDark;
           font-size: 1.4em;
         }
-      }
-    }
-  }
-  .map {
-    width: 100%;
-    height: 600px;
-    .custom-marker {
-    	width: 32px;
-    	height: 18px;
-      margin-left: -16px;
-      margin-top: -9px;
-    	background: $colorLight;
-    	position: relative;
-      &:before {
-      	content: '';
-      	position: absolute;
-      	top: -8px;
-      	left: 0;
-      	width: 0;
-      	height: 0;
-      	border-left: 16px solid transparent;
-      	border-right: 16px solid transparent;
-      	border-bottom: 8px solid $colorLight;
-      }
-      &:after {
-      	content: '';
-      	position: absolute;
-      	bottom: -8px;
-      	left: 0;
-      	width: 0;
-      	height: 0;
-      	border-left: 16px solid transparent;
-      	border-right: 16px solid transparent;
-      	border-top: 8px solid $colorLight;
       }
     }
   }
@@ -703,32 +685,36 @@ body {
 
 
 @media only screen and (max-width: 768px) {
+  .header {
+    >.title {
+      font-size: 2.6em;
+    }
+  }
   .navigation {
     .navigation-trigger {
       opacity: 1;
       top: auto;
-      right: 3%;
-      bottom: 1.5%;
+      right: 20px;
+      bottom: 20px;
       background: white;
-      padding: 10px;
-      border-radius: 35px;
-      box-shadow: 0 0 5px transparentize($colorDark, .75);
+      border-radius: 25px;
+      box-shadow: 0 0 5px transparentize($colorDark, .5);
       span {
-        left: 16px;
-        right: 16px;
+        left: 13px;
+        right: 13px;
         &.top-line {
-          top: 25px;
+          top: 18px;
         }
         &.middle-line {
-          top: 35px;
+          top: 25px;
         }
         &.bottom-line {
-          top: 45px;
+          top: 32px;
         }
       }
     }
     .navigation-elements {
-      height: 660px;
+      height: 768px;
       &.active {
         top: auto;
         left: 0;
@@ -736,6 +722,21 @@ body {
       &.inactive {
         top: auto;
         left: 100%;
+      }
+      .navigation-element,
+      .sorters-element,
+      .filters-element {
+        margin-bottom: 20px;
+      }
+      .navigation-element {
+        .title {
+          font-size: 2.2em;
+          margin-bottom: 10px;
+          padding-bottom: 3px;
+        }
+        .meta-controls {
+          top: 0;
+        }
       }
       .sorters-element {
         .option {
@@ -772,11 +773,58 @@ body {
         }
       }
       .world-heritage-site {
-        width: 40px;
-        height: 40px;
-        .icon {
-          width: 30px;
-          height: 30px;
+        display: none;
+      }
+    }
+  }
+  .modal.item {
+    .image {
+      height: 200px;
+      margin-bottom: 5%;
+      .title {
+        font-size: 1.8em;
+        left: 20px;
+      }
+      .item-close-trigger {
+        right: 15px;
+        top: 15px;
+        box-shadow: 0 0 5px transparentize($colorDark, .5);
+      }
+      .attribution {
+        font-size: 1em;
+        right: auto;
+        left: 20px;
+        bottom: 20px;
+      }
+    }
+    .content {
+      display: block;
+      .sidebar {
+        padding: 0 3% 3%;
+        width: 100%;
+        .stat {
+          padding: 0 0 10px;
+          .key.material-icons {
+            font-size: 1.6em;
+            padding: 6px;
+          }
+          .value {
+            font-size: 1.2em;
+            height: 28px;
+            line-height: 28px;
+          }
+        }
+      }
+      .main {
+        padding: 0 3% 3%;
+        width: 100%;
+        .description {
+          font-size: 1.4em;
+        }
+        .state-list {
+          .state {
+            font-size: 1.2em;
+          }
         }
       }
     }

@@ -315,13 +315,13 @@ body {
 
 .modal.item {
   background: #fefefe;
-  margin-top: -90px;
   z-index: 2;
   animation: fadeLeft ease-out 1;
   animation-fill-mode: forwards;
   animation-duration: .25s;
   margin: 10px 6px 6px;
-  position: fixed; }
+  position: fixed;
+  height: calc(100% - 16px); }
   .modal.item .image {
     width: 100%;
     height: 460px;
@@ -337,18 +337,33 @@ body {
       font-size: 3em;
       text-shadow: 0 0 10px #121212;
       color: #fefefe; }
-    .modal.item .image .close {
-      position: absolute;
+    .modal.item .image .item-close-trigger {
+      cursor: pointer;
+      position: fixed;
       right: 20px;
       top: 20px;
-      background: #fefefe;
-      padding: 10px;
-      border-radius: 30px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.25s ease-in-out; }
-      .modal.item .image .close:hover {
-        opacity: .8; }
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      z-index: 2;
+      transition: all 0.25s linear;
+      background: #fefefe; }
+      .modal.item .image .item-close-trigger span {
+        background: #383838;
+        height: 1px;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        transform-origin: center center 0;
+        transition: all .3s ease-in-out 0.1s; }
+        .modal.item .image .item-close-trigger span.top-line {
+          top: 50%;
+          transform: rotateZ(135deg); }
+        .modal.item .image .item-close-trigger span.bottom-line {
+          top: 50%;
+          transform: rotateZ(-135deg); }
+      .modal.item .image .item-close-trigger:hover span {
+        background: #121212; }
     .modal.item .image .attribution {
       position: absolute;
       right: 40px;
@@ -414,36 +429,6 @@ body {
           background: #f1f1f1;
           color: #121212;
           font-size: 1.4em; }
-  .modal.item .map {
-    width: 100%;
-    height: 600px; }
-    .modal.item .map .custom-marker {
-      width: 32px;
-      height: 18px;
-      margin-left: -16px;
-      margin-top: -9px;
-      background: #fefefe;
-      position: relative; }
-      .modal.item .map .custom-marker:before {
-        content: '';
-        position: absolute;
-        top: -8px;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-left: 16px solid transparent;
-        border-right: 16px solid transparent;
-        border-bottom: 8px solid #fefefe; }
-      .modal.item .map .custom-marker:after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-left: 16px solid transparent;
-        border-right: 16px solid transparent;
-        border-top: 8px solid #fefefe; }
 
 .map {
   z-index: 2;
@@ -580,32 +565,43 @@ body {
       column-count: 1; } }
 
 @media only screen and (max-width: 768px) {
+  .header > .title {
+    font-size: 2.6em; }
   .navigation .navigation-trigger {
     opacity: 1;
     top: auto;
-    right: 3%;
-    bottom: 1.5%;
+    right: 20px;
+    bottom: 20px;
     background: white;
-    padding: 10px;
-    border-radius: 35px;
-    box-shadow: 0 0 5px rgba(18, 18, 18, 0.25); }
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgba(18, 18, 18, 0.5); }
     .navigation .navigation-trigger span {
-      left: 16px;
-      right: 16px; }
+      left: 13px;
+      right: 13px; }
       .navigation .navigation-trigger span.top-line {
-        top: 25px; }
+        top: 18px; }
       .navigation .navigation-trigger span.middle-line {
-        top: 35px; }
+        top: 25px; }
       .navigation .navigation-trigger span.bottom-line {
-        top: 45px; }
+        top: 32px; }
   .navigation .navigation-elements {
-    height: 660px; }
+    height: 768px; }
     .navigation .navigation-elements.active {
       top: auto;
       left: 0; }
     .navigation .navigation-elements.inactive {
       top: auto;
       left: 100%; }
+    .navigation .navigation-elements .navigation-element,
+    .navigation .navigation-elements .sorters-element,
+    .navigation .navigation-elements .filters-element {
+      margin-bottom: 20px; }
+    .navigation .navigation-elements .navigation-element .title {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      padding-bottom: 3px; }
+    .navigation .navigation-elements .navigation-element .meta-controls {
+      top: 0; }
     .navigation .navigation-elements .sorters-element .option {
       width: 48%; }
     .navigation .navigation-elements .filters-element .option {
@@ -628,8 +624,40 @@ body {
         line-height: 20px;
         float: left; }
     .items .item .world-heritage-site {
-      width: 40px;
-      height: 40px; }
-      .items .item .world-heritage-site .icon {
-        width: 30px;
-        height: 30px; } }
+      display: none; }
+  .modal.item .image {
+    height: 200px;
+    margin-bottom: 5%; }
+    .modal.item .image .title {
+      font-size: 1.8em;
+      left: 20px; }
+    .modal.item .image .item-close-trigger {
+      right: 15px;
+      top: 15px;
+      box-shadow: 0 0 5px rgba(18, 18, 18, 0.5); }
+    .modal.item .image .attribution {
+      font-size: 1em;
+      right: auto;
+      left: 20px;
+      bottom: 20px; }
+  .modal.item .content {
+    display: block; }
+    .modal.item .content .sidebar {
+      padding: 0 3% 3%;
+      width: 100%; }
+      .modal.item .content .sidebar .stat {
+        padding: 0 0 10px; }
+        .modal.item .content .sidebar .stat .key.material-icons {
+          font-size: 1.6em;
+          padding: 6px; }
+        .modal.item .content .sidebar .stat .value {
+          font-size: 1.2em;
+          height: 28px;
+          line-height: 28px; }
+    .modal.item .content .main {
+      padding: 0 3% 3%;
+      width: 100%; }
+      .modal.item .content .main .description {
+        font-size: 1.4em; }
+      .modal.item .content .main .state-list .state {
+        font-size: 1.2em; } }
