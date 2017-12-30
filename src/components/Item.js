@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { object } from 'prop-types'
 
 class Item extends Component {
   render() {
-    const { activeItem, filters } = this.props
+    const {
+      activeItem,
+      filters,
+      history
+    } = this.props
     const image = activeItem.image ?
       {
         url: activeItem.image.url,
@@ -22,9 +25,9 @@ class Item extends Component {
       <div className="item modal">
         <div className="image" style={{backgroundImage: `url('/images/originals/${image.url}')`}}>
           <h1 className="title">{activeItem.title}</h1>
-          <Link to="/">
+          <div onClick={() => history.goBack()}>
             <i className="material-icons close">close</i>
-          </Link>
+          </div>
           <a className="attribution" href={image.attribution_url} target="_blank" rel="noopener noreferrer">
             Image credit: {image.attribution}
           </a>
@@ -74,6 +77,7 @@ class Item extends Component {
 
 Item.propTypes = {
   activeItem: object,
+  history: object,
 }
 
 export default Item

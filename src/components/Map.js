@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { object } from 'prop-types'
 import { Map as GoogleMap, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react'
 
@@ -50,29 +49,29 @@ class Map extends Component {
   }
 
   render () {
+    const { items, history } = this.props
     const itemLink = this.state.selectedPlace.name ? `/#/park/${this.state.selectedPlace.name.replace(/ /g, '-').toLowerCase()}` : ''
 
     return (
       <section className="map">
-        <Link className="map-close-trigger" to="/">
+        <div className="map-close-trigger" onClick={() => history.goBack()}>
           <span className="top-line" />
           <span className="bottom-line" />
-        </Link>
+        </div>
         <div className="google-map">
           <GoogleMap
             google={this.props.google}
             initialCenter={{ lat: 49, lng: -98.60 }}
             zoom={4}
             onClick={this.onMapClick}>
-            {this.renderMapMarker(this.props.items, this.onMarkerClick)}
+            {this.renderMapMarker(items, this.onMarkerClick)}
             <InfoWindow
               marker={this.state.activeMarker}
               visible={this.state.infoWindowVisibile}>
-              <div>
-                <a href={itemLink}>
-                  <p>{this.state.selectedPlace.name}</p>
-                </a>
-              </div>
+              <a className="item-link" href={itemLink}>
+                {this.state.selectedPlace.name}<br />
+                National Park
+              </a>
             </InfoWindow>
           </GoogleMap>
         </div>

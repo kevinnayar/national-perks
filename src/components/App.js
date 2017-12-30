@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { bool } from 'prop-types'
+import { object, bool } from 'prop-types'
 
 import Loader from './Loader'
 import Header from './Header'
@@ -10,7 +10,7 @@ import Item from '../containers/Item'
 import Map from '../containers/Map'
 
 function App (props) {
-  const { isLoading } = props
+  const { isLoading, history } = props
 
   return (
     <div className="app">
@@ -30,14 +30,16 @@ function App (props) {
       {!isLoading && (
         <Switch>
           <Route path='/park/:activeItemId' exact render={({ match }) => (
-            <Item activeItemId={`park_${match.params.activeItemId}`} />
+            <Item activeItemId={`park_${match.params.activeItemId}`} history={history} />
           )} />
         </Switch>
       )}
 
       {!isLoading && (
         <Switch>
-          <Route path='/map' exact component={Map} />
+          <Route path='/map' exact>
+            <Map history={history} />
+          </Route>
         </Switch>
       )}
 
@@ -47,6 +49,7 @@ function App (props) {
 
 App.propTypes = {
   isLoading: bool,
+  history: object,
 }
 
 export default App

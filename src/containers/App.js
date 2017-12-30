@@ -19,6 +19,7 @@ class AppContainer extends Component {
     items: object,
     filters: object,
     sorters: object,
+    history: object,
   }
 
   state = {
@@ -40,7 +41,7 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <App isLoading={this.state.isLoading} />
+      <App isLoading={this.state.isLoading} history={this.props.history} />
     )
   }
 }

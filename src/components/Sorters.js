@@ -5,7 +5,7 @@ class Sorters extends Component {
   handleClick(id) {
     this.props.updateActiveSorter(id)
   }
-  
+
   renderSorter(activeSorter, sorters) {
     return Object.keys(sorters).map(sorter => {
       const activeState = (activeSorter.id === sorters[sorter].id) ? 'active' : 'inactive'
@@ -26,11 +26,13 @@ class Sorters extends Component {
   }
 
   render() {
+    const { activeSorter, sorters } = this.props
+    
     return (
       <div className="navigation-element sorters-element">
         <p className="title">Sort options</p>
         <div className="sorters">
-          {this.renderSorter(this.props.activeSorter, this.props.sorters)}
+          {this.renderSorter(activeSorter, sorters)}
         </div>
       </div>
     )
@@ -43,13 +45,3 @@ Sorters.propTypes = {
 }
 
 export default Sorters
-
-/*
-
-<i
-  className="material-icons icon-left"
-  onClick={() => this.handleClick(sorters[sorter].id, 'desc')}>
-  keyboard_arrow_up
-</i>
-
-*/

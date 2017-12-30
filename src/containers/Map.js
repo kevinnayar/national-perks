@@ -7,11 +7,13 @@ import Map from '../components/Map'
 class MapContainer extends Component {
   static propTypes = {
     items: object,
+    history: object,
   }
 
   render() {
+    const { items, history } = this.props
     return (
-      <Map items={this.props.items} />
+      <Map items={items} history={history} />
     )
   }
 }

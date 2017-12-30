@@ -12,11 +12,17 @@ class SortersContainer extends Component {
   }
 
   render() {
+    const {
+      sorters,
+      activeSorter,
+      updateActiveSorter
+    } = this.props
+
     return (
       <Sorters
-        sorters={this.props.sorters}
-        activeSorter={this.props.activeSorter}
-        updateActiveSorter={this.props.updateActiveSorter} />
+        sorters={sorters}
+        activeSorter={activeSorter}
+        updateActiveSorter={updateActiveSorter} />
     )
   }
 }

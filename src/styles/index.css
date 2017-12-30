@@ -446,30 +446,26 @@ body {
         border-top: 8px solid #fefefe; }
 
 .map {
-  background: #525252;
-  margin-top: -90px;
   z-index: 2;
   animation: fadeLeft ease-out 1;
   animation-fill-mode: forwards;
   animation-duration: .25s;
-  margin: 10px 6px 6px;
   position: fixed;
   width: calc(100% - 12px);
-  height: calc(100% - 16px); }
+  height: calc(100% - 102px);
+  margin: 96px 6px 6px; }
   .map .map-close-trigger {
     cursor: pointer;
     position: fixed;
-    right: 20px;
-    top: 20px;
+    right: calc(5% - 6px);
+    top: -76px;
     width: 50px;
     height: 50px;
     z-index: 2;
-    transition: opacity 0.25s linear;
-    opacity: 0.85; }
-    .map .map-close-trigger:hover {
-      opacity: 1; }
+    transition: all 0.25s linear;
+    background: #fefefe; }
     .map .map-close-trigger span {
-      background: #fefefe;
+      background: #383838;
       height: 1px;
       position: absolute;
       left: 0;
@@ -482,10 +478,11 @@ body {
       .map .map-close-trigger span.bottom-line {
         top: 50%;
         transform: rotateZ(-135deg); }
+    .map .map-close-trigger:hover span {
+      background: #121212; }
   .map .google-map {
-    margin-top: 90px;
     width: 100%;
-    height: calc(100% - 90px); }
+    height: 100%; }
     .map .google-map .map-marker {
       text-align: center;
       width: 200px; }

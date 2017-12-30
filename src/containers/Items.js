@@ -14,13 +14,21 @@ class ItemsContainer extends Component {
   }
 
   render() {
+    const {
+      items,
+      filters,
+      activeFilters,
+      sorters,
+      activeSorter
+    } = this.props
+
     return (
       <Items
-        items={this.props.items}
-        filters={this.props.filters}
-        activeFilters={this.props.activeFilters}
-        sorters={this.props.sorters}
-        activeSorter={this.props.activeSorter} />
+        items={items}
+        filters={filters}
+        activeFilters={activeFilters}
+        sorters={sorters}
+        activeSorter={activeSorter} />
     )
   }
 }

@@ -14,6 +14,7 @@ class ItemContainer extends Component {
     activeItemId: string,
     activeItem: object,
     filters: object,
+    history: object,
   }
 
   componentDidMount() {
@@ -21,10 +22,17 @@ class ItemContainer extends Component {
   }
 
   render() {
+    const {
+      activeItem,
+      filters,
+      history
+    } = this.props
+
     return (
       <Item
-        activeItem={this.props.activeItem}
-        filters={this.props.filters} />
+        activeItem={activeItem}
+        filters={filters}
+        history={history} />
     )
   }
 }
