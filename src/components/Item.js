@@ -23,7 +23,7 @@ class Item extends Component {
 
     return (
       <div className="item modal">
-        <div className="image" style={{backgroundImage: `url('/images/originals/${image.url}')`}}>
+        <div className="image" style={{backgroundImage: `url('images/originals/${image.url}')`}}>
           <h1 className="title">{activeItem.title}</h1>
           <div onClick={() => history.goBack()}>
             <i className="material-icons close">close</i>

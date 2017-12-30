@@ -54,10 +54,10 @@ class Items extends Component {
         <div
           className={`item ${activeState}`}
           key={park.id}>
-          <Link to={`/park/${park.title.replace(/ /g, '-').toLowerCase()}`}>
+          <Link to={`park/${park.title.replace(/ /g, '-').toLowerCase()}`}>
             <img
               className="image"
-              src={`/images/thumbnails/${park.image.url}`}
+              src={`images/thumbnails/${park.image.url}`}
               alt={park.title} />
             <h1 className="title">{park.title}</h1>
 
@@ -77,7 +77,7 @@ class Items extends Component {
               <div className="world-heritage-site">
                 <img
                   className="icon"
-                  src="/images/world-heritage-site.svg"
+                  src="images/world-heritage-site.svg"
                   alt="World Heritage Site" />
                 <div className="tooltip-arrow" />
                 <p className="tooltip">
