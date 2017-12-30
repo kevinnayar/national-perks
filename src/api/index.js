@@ -13,11 +13,11 @@ class Api {
   }
 
   getData () {
-    return this.getRequest('/data/parks.json')
+    return this.getRequest('data/parks.json')
   }
 
   getSorters () {
-    return this.getRequest('/data/sorters.json')
+    return this.getRequest('data/sorters.json')
   }
 }
 
