@@ -2,6 +2,15 @@ import React, { Component } from 'react'
 import { object } from 'prop-types'
 
 class Item extends Component {
+  closeItemModal(history) {
+    if (history.length <= 2) {
+      window.location.href = `${window.location.href.split('#/')[0]}#/`
+    }
+    else {
+      history.goBack()
+    }
+  }
+
   render() {
     const {
       activeItem,
@@ -20,12 +29,13 @@ class Item extends Component {
       }
     const mapLink = activeItem.id ? activeItem.id.replace('park_', '') : ''
     const states = activeItem.states ? activeItem.states : []
+    console.log(history)
 
     return (
       <div className="item modal">
         <div className="image" style={{backgroundImage: `url('images/originals/${image.url}')`}}>
           <h1 className="title">{activeItem.title}</h1>
-          <div className="item-close-trigger" onClick={() => history.goBack()}>
+          <div className="item-close-trigger" onClick={() => this.closeItemModal(history)}>
             <span className="top-line" />
             <span className="bottom-line" />
           </div>
@@ -78,6 +88,7 @@ class Item extends Component {
 
 Item.propTypes = {
   activeItem: object,
+  filters: object,
   history: object,
 }
 
