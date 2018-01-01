@@ -1,7 +1,7 @@
 {
-  "name": "national-perks",
+  "name": "nationalperks",
   "version": "0.1.0",
-  "homepage": "https://kevinnayar.github.io/national-perks",
+  "homepage": "https://kevinnayar.github.io/nationalperks",
   "devDependencies": {
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
