@@ -29,7 +29,6 @@ class Item extends Component {
       }
     const mapLink = activeItem.id ? activeItem.id.replace('park_', '') : ''
     const states = activeItem.states ? activeItem.states : []
-    console.log(history)
 
     return (
       <div className="item modal">
