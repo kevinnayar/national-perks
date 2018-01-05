@@ -241,6 +241,7 @@ body {
       display: none; }
     .items .item a {
       display: block;
+      min-height: 200px;
       width: 100%;
       background: #73d8cf; }
     .items .item .image {
@@ -327,6 +328,7 @@ body {
     height: 460px;
     background-size: cover;
     background-position: center center;
+    background-color: #f1f1f1;
     position: relative; }
     .modal.item .image .title {
       position: absolute;

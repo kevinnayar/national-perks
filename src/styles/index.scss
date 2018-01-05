@@ -240,6 +240,7 @@ body {
     }
     a {
       display: block;
+      min-height: 200px;
       width: 100%;
       background: lighten($colorPrimary, 5);
     }
@@ -344,6 +345,7 @@ body {
     height: 460px;
     background-size: cover;
     background-position: center center;
+    background-color: darken($colorLight, 5);
     position: relative;
     .title {
       position: absolute;
